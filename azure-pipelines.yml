@@ -18,3 +18,7 @@ steps:
 - script: |
     docker-compose build
   displayName: 'docker-compose build'
+
+- script: |
+    docker-compose up -d
+  displayName: 'docker-compose up'
