@@ -31,3 +31,9 @@ steps:
 - script: |
     docker-compose run web bundle exec rails spec
   displayName: 'exec rspec'
+
+- task: PublishTestResults@2
+  condition: succeededOrFailed()
+  inputs:
+    testResultsFiles: 'rspec.xml'
+    testRunTitle: 'Ruby tests'
