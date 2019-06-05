@@ -18,6 +18,7 @@ group :development, :test do
   gem "pry-rails"
   gem "rubocop", require: false
   gem "rspec-rails"
+  gem "rspec_junit_formatter"
 end
 
 group :development do
