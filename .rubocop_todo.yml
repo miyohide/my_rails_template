@@ -21,15 +21,7 @@
 
 # Offense count: 6
 Style/Documentation:
-  Exclude:
-    - 'spec/**/*'
-    - 'test/**/*'
-    - 'app/controllers/posts_controller.rb'
-    - 'app/helpers/application_helper.rb'
-    - 'app/helpers/posts_helper.rb'
-    - 'app/mailers/application_mailer.rb'
-    - 'app/models/application_record.rb'
-    - 'app/models/post.rb'
+  Enabled: false
 
 # Offense count: 2
 # Cop supports --auto-correct.
