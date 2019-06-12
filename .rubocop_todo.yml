@@ -28,8 +28,7 @@ Style/Documentation:
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: compact, expanded
 Style/EmptyMethod:
-  Exclude:
-    - 'app/controllers/posts_controller.rb'
+  Enabled: false
 
 # Offense count: 10
 # Cop supports --auto-correct.
