@@ -15,9 +15,9 @@
 # Offense count: 2
 # Cop supports --auto-correct.
 # Configuration parameters: Width, IgnoredPatterns.
-Layout/IndentationWidth:
-  Exclude:
-    - 'app/controllers/posts_controller.rb'
+#Layout/IndentationWidth:
+#  Exclude:
+#    - 'app/controllers/posts_controller.rb'
 
 # Offense count: 6
 Style/Documentation:
