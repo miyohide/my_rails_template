@@ -1,39 +1,9 @@
-# Offense count: 1
-# Cop supports --auto-correct.
-#Layout/EmptyLinesAroundAccessModifier:
-#  Exclude:
-#    - 'app/controllers/posts_controller.rb'
-
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: normal, rails
-#Layout/IndentationConsistency:
-#  Exclude:
-#    - 'app/controllers/posts_controller.rb'
-
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: Width, IgnoredPatterns.
-#Layout/IndentationWidth:
-#  Exclude:
-#    - 'app/controllers/posts_controller.rb'
-
-# Offense count: 6
 Style/Documentation:
   Enabled: false
 
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: compact, expanded
 Style/EmptyMethod:
   Enabled: false
 
-# Offense count: 10
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: always, never
 Style/FrozenStringLiteralComment:
   Enabled: false
 
