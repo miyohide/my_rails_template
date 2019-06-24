@@ -19,6 +19,7 @@ group :development, :test do
   gem "rubocop", require: false
   gem "rspec-rails"
   gem "rspec_junit_formatter"
+  gem "factory_bot_rails"
 end
 
 group :development do
