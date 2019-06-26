@@ -16,8 +16,8 @@ RSpec.describe PostsController, type: :controller do
         login_user(FactoryBot.create(:user))
       end
 
-      it "ログイン画面にリダイレクトしないこと" do
-        expect(subject).to render_template(:show)
+      it "ログイン画面にリダイレクトせずにindex画面を描画すること" do
+        expect(subject).to render_template(:index)
       end
     end
   end
