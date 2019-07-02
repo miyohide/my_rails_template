@@ -76,4 +76,27 @@ RSpec.describe PostsController, type: :controller do
     end
   end
 
+  describe "POST #create" do
+    subject { post :create, params: { post: { title: "title1", body: "body1" } }}
+
+    context "ログインしていないとき" do
+      it "ログイン画面にリダイレクトすること" do
+        expect(subject).to redirect_to("/login")
+      end
+    end
+
+    context "ログインしているとき" do
+      before do
+        login_user(FactoryBot.create(:user))
+      end
+
+      it "ログイン画面にリダイレクトせずにPostの詳細画面にリダイレクトすること" do
+        expect(subject).to redirect_to("/posts/#{assigns(:post).id}")
+      end
+
+      it "Postが1件増えていること" do
+        expect{ subject }.to change{ Post.count }.by(1)
+      end
+    end
+  end
 end
