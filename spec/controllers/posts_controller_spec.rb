@@ -134,4 +134,32 @@ RSpec.describe PostsController, type: :controller do
       end
     end
   end
+
+  describe "DELETE #destroy" do
+    before do
+      @post = FactoryBot.create(:post)
+    end
+
+    subject { delete :destroy, params: { id: @post.id }}
+
+    context "ログインしていないとき" do
+      it "ログイン画面にリダイレクトすること" do
+        expect(subject).to redirect_to("/login")
+      end
+    end
+
+    context "ログインしているとき" do
+      before do
+        login_user(FactoryBot.create(:user))
+      end
+
+      it "ログイン画面にリダイレクトせずにPostのindexにリダイレクトすること" do
+        expect(subject).to redirect_to("/posts")
+      end
+
+      it "Postが1件減っていること" do
+        expect{ subject }.to change{ Post.count }.by(-1)
+      end
+    end
+  end
 end
