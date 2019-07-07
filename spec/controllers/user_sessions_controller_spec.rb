@@ -9,17 +9,34 @@ RSpec.describe UserSessionsController, type: :controller do
     end
   end
 
-  describe "GET #create" do
-    it "returns http success" do
-      get :create
-      expect(response).to have_http_status(:success)
+  describe "POST #create" do
+    context "登録されているユーザ情報を与えた場合" do
+      before do
+        FactoryBot.create(:user)
+      end
+
+      it "ログインに成功すること" do
+        post :create, params: FactoryBot.attributes_for(:user)
+        expect(response).to redirect_to(posts_path)
+      end
+    end
+
+    context "登録されていないユーザ情報を与えた場合" do
+      it "ログインに失敗すること" do
+        post :create, params: FactoryBot.attributes_for(:user)
+        expect(response).to render_template(:new)
+      end
     end
   end
 
-  describe "GET #destroy" do
-    it "returns http success" do
-      get :destroy
-      expect(response).to have_http_status(:success)
+  describe "DELETE #destroy" do
+    before do
+      login_user(FactoryBot.create(:user))
+    end
+
+    it "rootパスにリダイレクトすること" do
+      delete :destroy
+      expect(response).to redirect_to(root_path)
     end
   end
 
