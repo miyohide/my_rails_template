@@ -43,3 +43,4 @@ group :test do
 end
 
 gem 'sorcery'
+gem "webpacker", '~> 4.x'
