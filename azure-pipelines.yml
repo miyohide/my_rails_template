@@ -16,7 +16,7 @@ steps:
   displayName: 'prepare'
 
 - script: |
-    docker-compose build
+    docker-compose build --no-cache
   displayName: 'docker-compose build'
 
 - script: |
