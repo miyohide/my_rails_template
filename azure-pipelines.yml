@@ -16,12 +16,16 @@ steps:
   displayName: 'prepare'
 
 - script: |
-    docker-compose build
+    docker-compose build --no-cache
   displayName: 'docker-compose build'
 
 - script: |
     docker-compose up -d
   displayName: 'docker-compose up'
+
+- script: |
+    docker-compose run web yarn install
+  displayName: 'yarn install'
 
 - script: |
     docker-compose run web bundle exec rails db:create
