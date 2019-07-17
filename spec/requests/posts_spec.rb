@@ -25,6 +25,12 @@ RSpec.describe "Posts", type: :request do
       it 'success to request' do
         expect(response.status).to eq 200
       end
+
+      it 'contain all posted data' do
+        @posts.each do |post|
+          expect(response.body).to include(post.title)
+        end
+      end
     end
   end
 end
