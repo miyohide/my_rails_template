@@ -60,4 +60,5 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
   config.include Sorcery::TestHelpers::Rails::Controller, type: :controller
   config.include Sorcery::TestHelpers::Rails::Integration, type: :feature
+  config.include Sorcery::TestHelpers::Rails::Request, type: :request
 end
