@@ -14,7 +14,7 @@ RSpec.describe "Posts", type: :request do
     context 'when user login' do
       before do
         @posts = FactoryBot.create_list(:post, 3)
-        @user = FactoryBot.create(:user)
+        FactoryBot.create(:user)
         # Request SpecではSorceryのlogin_userメソッドがうまく動かないので、
         # 直接/user_sessionsにログイン情報を渡してログイン処理を実施することにした。
         # 参考: https://github.com/NoamB/sorcery/issues/775
