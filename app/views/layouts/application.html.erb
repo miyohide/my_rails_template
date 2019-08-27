@@ -17,7 +17,7 @@
           <%= link_to "Edit Profile", edit_user_path(current_user.id), class: "btn btn-warning" %>
           <%= link_to "Logout", :logout, method: :delete, class: "btn btn-danger" %>
         <% else %>
-          <%= link_to "Register", new_user_path, class: "btn btn-primary" %> |
+          <%= link_to "Register", new_user_path, class: "btn btn-primary" %>
           <%= link_to "Login", :login, class: "btn btn-success" %>
         <% end %>
       </div>
