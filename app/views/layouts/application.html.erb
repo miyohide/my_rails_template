@@ -21,10 +21,9 @@
           <%= link_to "Login", :login, class: "btn btn-success" %>
         <% end %>
       </div>
-      <div>
-        <p id="notice"><%= flash[:notice] %></p>
-        <p id="alert"><%= flash[:alert] %></p>
-      </div>
+      <% flash.each do |name, message| %>
+        <div class="alert alert-<%= name %>"><%= message %></div>
+      <% end %>
 
       <%= yield %>
     </div>
