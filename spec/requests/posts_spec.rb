@@ -33,4 +33,17 @@ RSpec.describe "Posts", type: :request do
       end
     end
   end
+
+  describe "GET /posts/:id" do
+    context "when user does not login" do
+      before do
+        @post = FactoryBot.create(:post)
+      end
+
+      it "redirect to login page" do
+        get post_url(@post)
+        expect(response).to redirect_to('/login')
+      end
+    end
+  end
 end
