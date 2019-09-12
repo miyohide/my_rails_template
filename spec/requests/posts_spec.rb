@@ -45,5 +45,27 @@ RSpec.describe "Posts", type: :request do
         expect(response).to redirect_to('/login')
       end
     end
+
+    context 'when user login' do
+      before do
+        @posts = FactoryBot.create_list(:post, 3)
+        FactoryBot.create(:user)
+        # Request SpecではSorceryのlogin_userメソッドがうまく動かないので、
+        # 直接/user_sessionsにログイン情報を渡してログイン処理を実施することにした。
+        # 参考: https://github.com/NoamB/sorcery/issues/775
+        post '/user_sessions', params: FactoryBot.attributes_for(:user)
+        get post_url(@posts[1])
+      end
+
+      it 'success to request' do
+        expect(response.status).to eq 200
+      end
+
+      it 'contains target post data' do
+        expect(response.body).not_to include(@posts[0].title)
+        expect(response.body).to include(@posts[1].title)
+        expect(response.body).not_to include(@posts[2].title)
+      end
+    end
   end
 end
