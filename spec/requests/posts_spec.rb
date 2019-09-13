@@ -68,4 +68,32 @@ RSpec.describe "Posts", type: :request do
       end
     end
   end
+
+  describe "GET /posts/new" do
+    context "when user does not login" do
+      it "redirect to login page" do
+        get new_post_url
+        expect(response).to redirect_to('/login')
+      end
+    end
+
+    context "when user login" do
+      before do
+        FactoryBot.create(:user)
+        # Request SpecではSorceryのlogin_userメソッドがうまく動かないので、
+        # 直接/user_sessionsにログイン情報を渡してログイン処理を実施することにした。
+        # 参考: https://github.com/NoamB/sorcery/issues/775
+        post '/user_sessions', params: FactoryBot.attributes_for(:user)
+        get new_post_url
+      end
+
+      it 'success to request' do
+        expect(response.status).to eq 200
+      end
+
+      it "New Postの文字列があること" do
+        expect(response.body).to include("New Post")
+      end
+    end
+  end
 end
