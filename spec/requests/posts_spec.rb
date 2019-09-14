@@ -167,7 +167,7 @@ RSpec.describe "Posts", type: :request do
         expect(response).to redirect_to(post_url(Post.last))
       end
 
-      it 'success to request' do
+      it 'update post data' do
         put post_url(@post), params: {post: @params}
         expect(@post.reload.title).to eq(@updated_title)
       end
