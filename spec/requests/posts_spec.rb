@@ -131,4 +131,46 @@ RSpec.describe "Posts", type: :request do
       end
     end
   end
+
+  describe "put /posts" do
+    context "when user does not login" do
+      it "redirect to login page" do
+        p = FactoryBot.create(:post)
+        params = FactoryBot.attributes_for(:post)
+        params.merge({title: 'updated title'})
+        put post_url(p), params: {post: params}
+        expect(response).to redirect_to('/login')
+      end
+    end
+
+    context "when user login" do
+      before do
+        @post = FactoryBot.create(:post)
+        @updated_title = "updated title"
+        @params = FactoryBot.attributes_for(:post)
+        @params.merge!({title: @updated_title})
+
+        FactoryBot.create(:user)
+        # Request SpecではSorceryのlogin_userメソッドがうまく動かないので、
+        # 直接/user_sessionsにログイン情報を渡してログイン処理を実施することにした。
+        # 参考: https://github.com/NoamB/sorcery/issues/775
+        post '/user_sessions', params: FactoryBot.attributes_for(:user)
+      end
+
+      it 'success to request' do
+        put post_url(@post), params: {post: @params}
+        expect(response).to have_http_status(:found)
+      end
+
+      it 'redirect to show page' do
+        put post_url(@post), params: {post: @params}
+        expect(response).to redirect_to(post_url(Post.last))
+      end
+
+      it 'success to request' do
+        put post_url(@post), params: {post: @params}
+        expect(@post.reload.title).to eq(@updated_title)
+      end
+    end
+  end
 end
