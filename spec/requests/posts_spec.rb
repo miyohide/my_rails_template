@@ -173,4 +173,42 @@ RSpec.describe "Posts", type: :request do
       end
     end
   end
+
+  describe "delete /posts/:id" do
+    context "when user does not login" do
+      it "redirect to login page" do
+        p = FactoryBot.create(:post)
+        delete post_url(p)
+        expect(response).to redirect_to('/login')
+      end
+    end
+
+    context "when user login" do
+      before do
+        @post = FactoryBot.create(:post)
+
+        FactoryBot.create(:user)
+        # Request SpecではSorceryのlogin_userメソッドがうまく動かないので、
+        # 直接/user_sessionsにログイン情報を渡してログイン処理を実施することにした。
+        # 参考: https://github.com/NoamB/sorcery/issues/775
+        post '/user_sessions', params: FactoryBot.attributes_for(:user)
+      end
+
+      it 'success to request' do
+        delete post_url(@post)
+        expect(response).to have_http_status(:found)
+      end
+
+      it 'redirect to index page' do
+        delete post_url(@post)
+        expect(response).to redirect_to(posts_url)
+      end
+
+      it 'delete post data' do
+        expect do
+          delete post_url(@post)
+        end.to change(Post, :count).by(-1)
+      end
+    end
+  end
 end
