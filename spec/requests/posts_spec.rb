@@ -132,7 +132,7 @@ RSpec.describe "Posts", type: :request do
     end
   end
 
-  describe "put /posts" do
+  describe "put /posts/:id" do
     context "when user does not login" do
       it "redirect to login page" do
         p = FactoryBot.create(:post)
