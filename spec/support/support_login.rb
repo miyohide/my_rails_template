@@ -1,5 +1,6 @@
 module SupportLogin
   def create_and_login_user(user_params)
+    # postメソッドがbeforeやitの中でないと使えないので、全体をbeforeで囲んでいる
     before do
       # Request SpecではSorceryのlogin_userメソッドがうまく動かないので、
       # 直接/user_sessionsにログイン情報を渡してログイン処理を実施することにした。

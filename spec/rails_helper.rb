@@ -61,5 +61,8 @@ RSpec.configure do |config|
   config.include Sorcery::TestHelpers::Rails::Controller, type: :controller
   config.include Sorcery::TestHelpers::Rails::Integration, type: :feature
   config.include Sorcery::TestHelpers::Rails::Request, type: :request
+  # RSpec.configureのextendではメソッドをDSLっぽく使うことができる
+  # 一方でRSpec.configureのincludeはexampleの中で使えるメソッドを追加することができる
+  # see. https://qiita.com/mtsmfm/items/c97f9d4e3ebba3e78eec
   config.extend SupportLogin, type: :request
 end
