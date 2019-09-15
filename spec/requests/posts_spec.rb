@@ -12,13 +12,10 @@ RSpec.describe "Posts", type: :request do
     end
 
     context 'when user login' do
+      create_and_login_user(FactoryBot.attributes_for(:user))
+
       before do
         @posts = FactoryBot.create_list(:post, 3)
-        FactoryBot.create(:user)
-        # Request SpecではSorceryのlogin_userメソッドがうまく動かないので、
-        # 直接/user_sessionsにログイン情報を渡してログイン処理を実施することにした。
-        # 参考: https://github.com/NoamB/sorcery/issues/775
-        post '/user_sessions', params: FactoryBot.attributes_for(:user)
         subject
       end
 
@@ -47,13 +44,10 @@ RSpec.describe "Posts", type: :request do
     end
 
     context 'when user login' do
+      create_and_login_user(FactoryBot.attributes_for(:user))
+
       before do
         @posts = FactoryBot.create_list(:post, 3)
-        FactoryBot.create(:user)
-        # Request SpecではSorceryのlogin_userメソッドがうまく動かないので、
-        # 直接/user_sessionsにログイン情報を渡してログイン処理を実施することにした。
-        # 参考: https://github.com/NoamB/sorcery/issues/775
-        post '/user_sessions', params: FactoryBot.attributes_for(:user)
         get post_url(@posts[1])
       end
 
@@ -78,12 +72,9 @@ RSpec.describe "Posts", type: :request do
     end
 
     context "when user login" do
+      create_and_login_user(FactoryBot.attributes_for(:user))
+
       before do
-        FactoryBot.create(:user)
-        # Request SpecではSorceryのlogin_userメソッドがうまく動かないので、
-        # 直接/user_sessionsにログイン情報を渡してログイン処理を実施することにした。
-        # 参考: https://github.com/NoamB/sorcery/issues/775
-        post '/user_sessions', params: FactoryBot.attributes_for(:user)
         get new_post_url
       end
 
@@ -106,13 +97,7 @@ RSpec.describe "Posts", type: :request do
     end
 
     context "when user login" do
-      before do
-        FactoryBot.create(:user)
-        # Request SpecではSorceryのlogin_userメソッドがうまく動かないので、
-        # 直接/user_sessionsにログイン情報を渡してログイン処理を実施することにした。
-        # 参考: https://github.com/NoamB/sorcery/issues/775
-        post '/user_sessions', params: FactoryBot.attributes_for(:user)
-      end
+      create_and_login_user(FactoryBot.attributes_for(:user))
 
       it 'success to request' do
         post posts_url, params: {post: FactoryBot.attributes_for(:post)}
@@ -144,17 +129,13 @@ RSpec.describe "Posts", type: :request do
     end
 
     context "when user login" do
+      create_and_login_user(FactoryBot.attributes_for(:user))
+
       before do
         @post = FactoryBot.create(:post)
         @updated_title = "updated title"
         @params = FactoryBot.attributes_for(:post)
         @params.merge!({title: @updated_title})
-
-        FactoryBot.create(:user)
-        # Request SpecではSorceryのlogin_userメソッドがうまく動かないので、
-        # 直接/user_sessionsにログイン情報を渡してログイン処理を実施することにした。
-        # 参考: https://github.com/NoamB/sorcery/issues/775
-        post '/user_sessions', params: FactoryBot.attributes_for(:user)
       end
 
       it 'success to request' do
@@ -184,14 +165,10 @@ RSpec.describe "Posts", type: :request do
     end
 
     context "when user login" do
+      create_and_login_user(FactoryBot.attributes_for(:user))
+
       before do
         @post = FactoryBot.create(:post)
-
-        FactoryBot.create(:user)
-        # Request SpecではSorceryのlogin_userメソッドがうまく動かないので、
-        # 直接/user_sessionsにログイン情報を渡してログイン処理を実施することにした。
-        # 参考: https://github.com/NoamB/sorcery/issues/775
-        post '/user_sessions', params: FactoryBot.attributes_for(:user)
       end
 
       it 'success to request' do
