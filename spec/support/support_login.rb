@@ -7,7 +7,6 @@ module SupportLogin
       u = User.create(user_params)
       post '/user_sessions', params: user_params
       u
-
     end
   end
 end
