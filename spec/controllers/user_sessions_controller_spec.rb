@@ -12,11 +12,12 @@ RSpec.describe UserSessionsController, type: :controller do
   describe "POST #create" do
     context "登録されているユーザ情報を与えた場合" do
       before do
-        FactoryBot.create(:user)
+        @user_param = FactoryBot.attributes_for(:user)
+        User.create(@user_param)
       end
 
       it "ログインに成功すること" do
-        post :create, params: FactoryBot.attributes_for(:user)
+        post :create, params: @user_param
         expect(response).to redirect_to(posts_path)
       end
     end
