@@ -37,4 +37,15 @@ RSpec.describe "UserSessions", type: :request do
       end
     end
   end
+
+  describe "delete /logout" do
+    before do
+      login_user(FactoryBot.create(:user))
+    end
+
+    it "ログイン画面にリダイレクトすること" do
+      delete "/logout"
+      expect(response).to redirect_to("/login")
+    end
+  end
 end
