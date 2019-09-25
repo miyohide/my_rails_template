@@ -32,6 +32,7 @@ group :development do
   gem "bullet"
   gem "license_finder"
   gem "bundler-audit"
+  gem "rubocop-rails"
 end
 
 group :test do
