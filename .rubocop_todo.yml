@@ -33,15 +33,9 @@ Style/Documentation:
     - 'app/models/post.rb'
     - 'app/models/user.rb'
 
-# Offense count: 5
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: compact, expanded
+# 空メソッドでも１行にまとめては書かない
 Style/EmptyMethod:
-  Exclude:
-    - 'app/controllers/posts_controller.rb'
-    - 'app/controllers/users_controller.rb'
-    - 'app/controllers/welcome_controller.rb'
+  EnforcedStyle: expanded
 
 # Offense count: 17
 # Cop supports --auto-correct.
