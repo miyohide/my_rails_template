@@ -10,13 +10,6 @@ Layout/EmptyLinesAroundAccessModifier:
   EnforcedStyle: only_before
 
 # Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: Width, IgnoredPatterns.
-Layout/IndentationWidth:
-  Exclude:
-    - 'app/controllers/users_controller.rb'
-
-# Offense count: 2
 # Configuration parameters: AllowedChars.
 Style/AsciiComments:
   Exclude:
