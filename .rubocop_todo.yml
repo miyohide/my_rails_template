@@ -9,11 +9,9 @@
 Layout/EmptyLinesAroundAccessModifier:
   EnforcedStyle: only_before
 
-# Offense count: 2
-# Configuration parameters: AllowedChars.
+# 日本語コメントを許可する
 Style/AsciiComments:
-  Exclude:
-    - 'app/controllers/application_controller.rb'
+  Enabled: false
 
 # Offense count: 14
 Style/Documentation:
