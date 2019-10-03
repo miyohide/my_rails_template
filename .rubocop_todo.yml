@@ -44,3 +44,8 @@ Style/SymbolArray:
 # 1行の文字数は取り急ぎ100文字で
 Metrics/LineLength:
   Max: 100
+
+# specはブロックがどうしても長くなるのでspecはチェック対象外とした
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
