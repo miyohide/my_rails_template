@@ -45,10 +45,7 @@ Style/FrozenStringLiteralComment:
 Style/StringLiterals:
   EnforcedStyle: double_quotes
 
-# Offense count: 4
-# Cop supports --auto-correct.
-# Configuration parameters: MinSize.
-# SupportedStyles: percent, brackets
+# シンボルの配列は%i[foo bar baz]ではなく[:foo :bar :baz]
 Style/SymbolArray:
   EnforcedStyle: brackets
 
