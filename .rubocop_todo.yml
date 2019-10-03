@@ -41,14 +41,9 @@ Style/EmptyMethod:
 Style/FrozenStringLiteralComment:
   Enabled: false
 
-# Offense count: 5
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, ConsistentQuotesInMultiline.
-# SupportedStyles: single_quotes, double_quotes
+# 文字列は二重引用符で
 Style/StringLiterals:
-  Exclude:
-    - 'app/controllers/application_controller.rb'
-    - 'app/controllers/user_sessions_controller.rb'
+  EnforcedStyle: double_quotes
 
 # Offense count: 4
 # Cop supports --auto-correct.
