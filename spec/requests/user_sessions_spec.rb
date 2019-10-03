@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe "UserSessions", type: :request do
   describe "GET /user_sessions/new" do

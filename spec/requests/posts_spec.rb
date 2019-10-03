@@ -1,17 +1,17 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe "Posts", type: :request do
   describe "GET /posts" do
     subject { get posts_path }
 
-    context 'when user does not login' do
-      it 'redirect to login page' do
+    context "when user does not login" do
+      it "redirect to login page" do
         subject
-        expect(response).to redirect_to('/login')
+        expect(response).to redirect_to("/login")
       end
     end
 
-    context 'when user login' do
+    context "when user login" do
       create_and_login_user(FactoryBot.attributes_for(:user))
 
       before do
@@ -19,11 +19,11 @@ RSpec.describe "Posts", type: :request do
         subject
       end
 
-      it 'success to request' do
+      it "success to request" do
         expect(response.status).to eq 200
       end
 
-      it 'contain all posted data' do
+      it "contain all posted data" do
         @posts.each do |post|
           expect(response.body).to include(post.title)
         end
@@ -39,11 +39,11 @@ RSpec.describe "Posts", type: :request do
 
       it "redirect to login page" do
         get post_url(@post)
-        expect(response).to redirect_to('/login')
+        expect(response).to redirect_to("/login")
       end
     end
 
-    context 'when user login' do
+    context "when user login" do
       create_and_login_user(FactoryBot.attributes_for(:user))
 
       before do
@@ -51,11 +51,11 @@ RSpec.describe "Posts", type: :request do
         get post_url(@posts[1])
       end
 
-      it 'success to request' do
+      it "success to request" do
         expect(response.status).to eq 200
       end
 
-      it 'contains target post data' do
+      it "contains target post data" do
         expect(response.body).not_to include(@posts[0].title)
         expect(response.body).to include(@posts[1].title)
         expect(response.body).not_to include(@posts[2].title)
@@ -67,7 +67,7 @@ RSpec.describe "Posts", type: :request do
     context "when user does not login" do
       it "redirect to login page" do
         get new_post_url
-        expect(response).to redirect_to('/login')
+        expect(response).to redirect_to("/login")
       end
     end
 
@@ -78,7 +78,7 @@ RSpec.describe "Posts", type: :request do
         get new_post_url
       end
 
-      it 'success to request' do
+      it "success to request" do
         expect(response.status).to eq 200
       end
 
@@ -92,26 +92,26 @@ RSpec.describe "Posts", type: :request do
     context "when user does not login" do
       it "redirect to login page" do
         post posts_url
-        expect(response).to redirect_to('/login')
+        expect(response).to redirect_to("/login")
       end
     end
 
     context "when user login" do
       create_and_login_user(FactoryBot.attributes_for(:user))
 
-      it 'success to request' do
-        post posts_url, params: {post: FactoryBot.attributes_for(:post)}
+      it "success to request" do
+        post posts_url, params: { post: FactoryBot.attributes_for(:post) }
         expect(response).to have_http_status(:found)
       end
 
-      it 'redirect to show page' do
-        post posts_url, params: {post: FactoryBot.attributes_for(:post)}
+      it "redirect to show page" do
+        post posts_url, params: { post: FactoryBot.attributes_for(:post) }
         expect(response).to redirect_to(post_url(Post.last))
       end
 
-      it 'create post data' do
+      it "create post data" do
         expect do
-          post posts_url, params: {post: FactoryBot.attributes_for(:post)}
+          post posts_url, params: { post: FactoryBot.attributes_for(:post) }
         end.to change(Post, :count).by(1)
       end
     end
@@ -122,9 +122,9 @@ RSpec.describe "Posts", type: :request do
       it "redirect to login page" do
         p = FactoryBot.create(:post)
         params = FactoryBot.attributes_for(:post)
-        params.merge({title: 'updated title'})
-        put post_url(p), params: {post: params}
-        expect(response).to redirect_to('/login')
+        params.merge(title: "updated title")
+        put post_url(p), params: { post: params }
+        expect(response).to redirect_to("/login")
       end
     end
 
@@ -135,21 +135,21 @@ RSpec.describe "Posts", type: :request do
         @post = FactoryBot.create(:post)
         @updated_title = "updated title"
         @params = FactoryBot.attributes_for(:post)
-        @params.merge!({title: @updated_title})
+        @params.merge!(title: @updated_title)
       end
 
-      it 'success to request' do
-        put post_url(@post), params: {post: @params}
+      it "success to request" do
+        put post_url(@post), params: { post: @params }
         expect(response).to have_http_status(:found)
       end
 
-      it 'redirect to show page' do
-        put post_url(@post), params: {post: @params}
+      it "redirect to show page" do
+        put post_url(@post), params: { post: @params }
         expect(response).to redirect_to(post_url(Post.last))
       end
 
-      it 'update post data' do
-        put post_url(@post), params: {post: @params}
+      it "update post data" do
+        put post_url(@post), params: { post: @params }
         expect(@post.reload.title).to eq(@updated_title)
       end
     end
@@ -160,7 +160,7 @@ RSpec.describe "Posts", type: :request do
       it "redirect to login page" do
         p = FactoryBot.create(:post)
         delete post_url(p)
-        expect(response).to redirect_to('/login')
+        expect(response).to redirect_to("/login")
       end
     end
 
@@ -171,17 +171,17 @@ RSpec.describe "Posts", type: :request do
         @post = FactoryBot.create(:post)
       end
 
-      it 'success to request' do
+      it "success to request" do
         delete post_url(@post)
         expect(response).to have_http_status(:found)
       end
 
-      it 'redirect to index page' do
+      it "redirect to index page" do
         delete post_url(@post)
         expect(response).to redirect_to(posts_url)
       end
 
-      it 'delete post data' do
+      it "delete post data" do
         expect do
           delete post_url(@post)
         end.to change(Post, :count).by(-1)
