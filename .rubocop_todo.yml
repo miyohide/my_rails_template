@@ -37,10 +37,7 @@ Style/Documentation:
 Style/EmptyMethod:
   EnforcedStyle: expanded
 
-# Offense count: 17
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: always, never
+# FrozenStringLiteralComment(frozen_string_literal: trueってやつ）はチェックしない
 Style/FrozenStringLiteralComment:
   Enabled: false
 
