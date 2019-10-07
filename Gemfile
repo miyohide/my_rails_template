@@ -45,3 +45,4 @@ end
 
 gem 'sorcery'
 gem "webpacker", '~> 4.x'
+gem "redis"
