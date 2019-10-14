@@ -25,11 +25,18 @@ jobs:
         ruby-version: 2.6.x
     - name: Install dependent libralies
       run: sudo apt-get install libpq-dev
-    - name: Build and test with Rake
+    - name: bundle install
       run: |
         gem install bundler
         bundle install --jobs 4 --retry 3
+    - name: yarn install
+      run: yarn install
+    - name: db setup
+      run: |
         bundle exec rails db:create RAILS_ENV=test
         bundle exec rails db:migrate RAILS_ENV=test
+    - name: webpacker compile
+      run: |
         bundle exec rails webpacker:compile
-        bundle exec rspec
+    - name: test
+      run: bundle exec rspec
