@@ -1,24 +1,19 @@
-# README
+# これは何か
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Rails 6.0のサンプルアプリです。Azure Web Apps上で
+動かすことを念頭に置いています。
 
-Things you may want to cover:
+# 作り方
 
-* Ruby version
+最初に`Dockerfile`、`Gemfile`、`Gemfile.lock`、`entrypoint.sh`、`docker-compose.yml`を作成します。
+それぞれの内容は https://github.com/miyohide/rails_for_azure_webapps/tree/d2e0d6bb409a77d6a3f6165d904ef2fb7b100014 の内容をみると良いかと思います。
 
-* System dependencies
+その後、`rails new`を実行します。
 
-* Configuration
+`rails new`コマンドは以下のオプションを指定します。
 
-* Database creation
+```
+> docker-compose run --rm web rails new . --force --no-deps -T -G --skip-turbolinks
+```
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+ポイントは、`-G`オプションを指定しているところです。Gitリポジトリとして構築しているところでさらに`rails new`の処理中に`git init`を実行されると`rails new`が途中で終了してしますので`-G`をつけています。
