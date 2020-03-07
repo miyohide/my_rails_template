@@ -36,3 +36,6 @@ coverage/
 yarn-debug.log*
 .yarn-integrity
 vendor/bundle
+
+# ignore SQLite3 file
+*.sqlite3
