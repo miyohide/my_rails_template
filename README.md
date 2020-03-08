@@ -13,7 +13,15 @@ Rails 6.0のサンプルアプリです。Azure Web Apps上で
 `rails new`コマンドは以下のオプションを指定します。
 
 ```
-> docker-compose run --rm web rails new . --force --no-deps -T -G --skip-turbolinks
+docker-compose run --rm web rails new . --force --no-deps -T -G --skip-turbolinks
 ```
 
 ポイントは、`-G`オプションを指定しているところです。Gitリポジトリとして構築しているところでさらに`rails new`の処理中に`git init`を実行されると`rails new`が途中で終了してしますので`-G`をつけています。
+
+# Gemの追加
+
+Gemを追加したいときは、`Gemfile`に追加したいGemを記入したあと以下のコマンドを実行する。
+
+```
+docker-compose run --rm web bundle install
+```
