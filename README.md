@@ -25,3 +25,19 @@ Gemを追加したいときは、`Gemfile`に追加したいGemを記入した�
 ```
 docker-compose run --rm web bundle install
 ```
+
+# Azure Web Appsに載せる
+
+## 設定
+
+Azure Web Appsを作成する段階で、Dockerイメージを選択すればOK。
+
+イメージの更新はアプリの再起動でできる。
+
+## Blocked hostが発生する
+
+`config/application.rb`に以下の設定を追加。
+
+```ruby
+config.hosts << '.azurewebsites.net'
+```
