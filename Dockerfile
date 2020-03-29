@@ -16,7 +16,7 @@ RUN ln -s /opt/yarn/bin/yarn /usr/local/bin/yarn \
 
 RUN apt-get update && apt-get install -y \
     build-essential \
-    libsqlite3-dev \
+    libpq-dev \
  && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir /myapp
@@ -29,10 +29,10 @@ COPY . /myapp
 RUN yarn install
 
 # Add a script to be executed every time the container starts.
-COPY entrypoint.sh /usr/bin/
-RUN chmod +x /usr/bin/entrypoint.sh
-ENTRYPOINT ["entrypoint.sh"]
+#COPY entrypoint.sh /usr/bin/
+#RUN chmod +x /usr/bin/entrypoint.sh
+#ENTRYPOINT ["entrypoint.sh"]
 EXPOSE 3000
 
 # Start the main process.
-CMD ["rails", "server", "-b", "0.0.0.0"]
+#CMD ["rails", "server", "-b", "0.0.0.0"]
