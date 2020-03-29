@@ -26,6 +26,10 @@ Gemを追加したいときは、`Gemfile`に追加したいGemを記入した�
 docker-compose run --rm web bundle install
 ```
 
+# 起動後アプリにアクセスすると`Sprockets::FileNotFound`がでる
+
+一旦`rm -rf bin/webpack*`を実行後、`docker-compose run --rm web rails webpacker:install`を実行する
+
 # Azure Web Appsに載せる
 
 ## 設定
