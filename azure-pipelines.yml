@@ -14,8 +14,7 @@ steps:
   inputs:
     versionSpec: '= 2.6'
 
-- script: |
-    sudo apt-get install libsqlite3-dev
+- script: sudo apt-get install libpq-dev
   displayName: 'install middleware'
 
 - script: |
