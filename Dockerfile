@@ -1,8 +1,8 @@
-FROM node:12.16.1-slim as node
+FROM node:12.16.3-slim as node
 FROM ruby:2.6-slim
 
 # Install Node.js and Yarn
-ENV YARN_VERSION 1.22.0
+ENV YARN_VERSION 1.22.4
 RUN mkdir -p /opt
 
 COPY --from=node /opt/yarn-v$YARN_VERSION /opt/yarn
