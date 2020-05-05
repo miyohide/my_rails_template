@@ -1,5 +1,5 @@
 FROM node:12.16.3-slim as node
-FROM ruby:2.6-slim
+FROM ruby:2.6.6-slim
 
 # Install Node.js and Yarn
 ENV YARN_VERSION 1.22.4
