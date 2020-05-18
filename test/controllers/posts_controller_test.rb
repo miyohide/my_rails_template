@@ -17,4 +17,9 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
       get post_url(1234)
     end
   end
+
+  test "should get new" do
+    get new_post_url
+    assert_response :success
+  end
 end
