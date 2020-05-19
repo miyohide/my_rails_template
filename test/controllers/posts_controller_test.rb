@@ -34,4 +34,12 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
       get edit_post_url(12345)
     end
   end
+
+  test "should create post" do
+    assert_difference('Post.count') do
+      post posts_url, params: { post: { title: 't', body: 'b' } }
+    end
+
+    assert_redirected_to post_path(Post.last)
+  end
 end
