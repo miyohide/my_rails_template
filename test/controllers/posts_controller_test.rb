@@ -22,4 +22,16 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     get new_post_url
     assert_response :success
   end
+
+  test "should get edit" do
+    post = Post.create(title: "t", body: "b")
+    get edit_post_url(post.id)
+    assert_response :success
+  end
+
+  test "shouldn't get edit when id doesn't exist" do
+    assert_raises(ActiveRecord::RecordNotFound) do
+      get edit_post_url(12345)
+    end
+  end
 end
