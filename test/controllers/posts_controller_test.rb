@@ -49,4 +49,13 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to post_path(post)
   end
+
+  test "should delete post" do
+    post = Post.create(title: "t", body: "b")
+    assert_difference('Post.count', -1) do
+      delete post_url(post.id)
+    end
+
+    assert_redirected_to posts_path
+  end
 end
