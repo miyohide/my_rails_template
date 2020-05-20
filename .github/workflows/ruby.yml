@@ -18,6 +18,20 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    # add postgresql service
+    # see. https://help.github.com/ja/actions/configuring-and-managing-workflows/creating-postgresql-service-containers
+    services:
+      postgres:
+        image: postgres:11.7
+        env:
+          POSTGRES_USER: 'rails_app'
+          POSTGRES_PASSWORD: 'rails_app'
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
     steps:
     - uses: actions/checkout@v2
     - name: Set up Ruby
