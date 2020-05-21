@@ -43,5 +43,7 @@ jobs:
         ruby-version: 2.6
     - name: Install dependencies
       run: bundle install
+    - name: change database config file
+      run: cp -p config/database.yml.ci config/database.yml
     - name: Run tests
       run: bundle exec rake
