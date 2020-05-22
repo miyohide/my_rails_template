@@ -49,6 +49,8 @@ jobs:
         ruby-version: 2.6
     - name: Install dependencies
       run: bundle install
+    - name: yarn install
+      run: bin/rails yarn:install
     - name: change database config file
       run: cp -p config/database.yml.ci config/database.yml
     - name: create database
