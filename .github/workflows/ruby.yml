@@ -13,6 +13,10 @@ on:
   pull_request:
     branches: [ master ]
 
+env:
+  RAILS_ENV: test
+  POSTGRES_HOST: localhost
+
 jobs:
   test:
 
@@ -53,5 +57,3 @@ jobs:
       run: bin/rails db:migrate
     - name: Run tests
       run: bundle exec rake
-      env:
-        POSTGRES_HOST: localhost
