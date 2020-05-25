@@ -56,6 +56,13 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to post_path(post)
   end
 
+  test "should not update post" do
+    post = Post.create(title: "t", body: "b")
+    patch post_url(post.id), params: { post: { title: 't' * 201, body: 'b1' } }
+
+    assert_match "Title is too long", @response.body
+  end
+
   test "should delete post" do
     post = Post.create(title: "t", body: "b")
     assert_difference('Post.count', -1) do
