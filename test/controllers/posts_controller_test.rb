@@ -1,6 +1,18 @@
 require 'test_helper'
 
 class PostsControllerTest < ActionDispatch::IntegrationTest
+  include Sorcery::TestHelpers::Rails::Integration
+
+  def login_user(u)
+    post user_sessions_path, params: { email: u.email, password: 'passw0rd' }
+    follow_redirect!
+  end
+
+  setup do
+    @user = users(:one)
+    login_user(@user)
+  end
+
   test "should get index" do
     get posts_url
     assert_response :success
