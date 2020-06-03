@@ -1,13 +1,21 @@
 # エラーが起きたときにfieldにbootstrapのclassを追加する
-ActionView::Base.field_error_proc = proc do |html_tag, _instance|
-  # HTMLタグにclass属性があるか
-  class_attr_index = html_tag.index 'class="'
+ActionView::Base.field_error_proc = proc do |html_tag, instance|
+  fragment = Nokogiri::HTML.fragment(html_tag)
+  field = fragment.at('input,select,textarea')
 
-  if class_attr_index
-    # classの指定があればis-invalidを追加
-    html_tag.insert class_attr_index + 'class="'.size, 'is-invalid '
+  model = instance.object
+  error_message = model.errors.full_messages.join(', ')
+
+  html = if field
+    field['class'] = "#{field['class']} is-invalid"
+    html = <<-HTML
+      #{fragment.to_s}
+      <p class="invalid-feedback">#{error_message}</p>
+    HTML
+    html
   else
-    # classの指定がなければclassを追加
-    html_tag.insert html_tag.index('>'), ' class="is-invalid"'
+    html_tag
   end
+
+  html.html_safe
 end
