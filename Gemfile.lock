@@ -155,6 +155,15 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     redis (4.1.4)
+    redis-actionpack (5.2.0)
+      actionpack (>= 5, < 7)
+      redis-rack (>= 2.1.0, < 3)
+      redis-store (>= 1.1.0, < 2)
+    redis-rack (2.1.2)
+      rack (>= 2.0.8, < 3)
+      redis-store (>= 1.2, < 2)
+    redis-store (1.8.2)
+      redis (>= 4, < 5)
     request_store (1.5.0)
       rack (>= 1.4)
     rexml (3.2.4)
@@ -240,6 +249,7 @@ DEPENDENCIES
   puma (~> 4.1)
   rails (~> 6.0.2, >= 6.0.2.1)
   redis (~> 4.0)
+  redis-actionpack
   rubocop-performance
   rubocop-rails
   rubocop-rspec
