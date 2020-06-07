@@ -1,5 +1,12 @@
 version: '3'
 services:
+  redis:
+    image: redis:6.0-alpine
+    ports:
+      - 6379:6379
+    volumes:
+      - redis_data:/data
+    command: redis-server
   db:
     image: postgres:11.7
     ports:
@@ -17,8 +24,12 @@ services:
       - bundle:/usr/local/bundle
     ports:
       - "3000:3000"
+    environment:
+      REDIS_URL: 'redis://redis:6379/1'
     depends_on:
       - db
+      - redis
 volumes:
   bundle:
   db_data:
+  redis_data:
