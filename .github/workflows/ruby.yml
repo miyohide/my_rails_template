@@ -16,7 +16,7 @@ on:
 env:
   RAILS_ENV: test
   POSTGRES_HOST: localhost
-  REDIS_URL: 'redis://redis:6379/1'
+  REDIS_URL: 'redis://localhost:6379/1'
 
 jobs:
   test:
@@ -40,6 +40,11 @@ jobs:
           - 5432:5432
       redis:
         image: redis:6.0-alpine
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
         ports:
           - 6379:6379
     steps:
