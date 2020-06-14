@@ -1,7 +1,10 @@
 version: '3'
 services:
   web: &app_base
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile_${DOCKER_RAILS_ENV}
+    image: rails_for_azure_webapps_${DOCKER_RAILS_ENV}
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
       - .:/myapp
@@ -9,8 +12,9 @@ services:
     ports:
       - "3000:3000"
     environment:
-      REDIS_URL: 'redis://redis:6379/0'
-      WEBPACKER_DEV_SERVER_HOST: webpacker
+      RAILS_ENV: $DOCKER_RAILS_ENV
+      REDIS_URL: $REDIS_URL
+      WEBPACKER_DEV_SERVER_HOST: $WEBPACKER_DEV_SERVER_HOST
     depends_on:
       - db
       - redis
@@ -28,8 +32,8 @@ services:
     volumes:
       - db_data:/var/lib/postgresql/data
     environment:
-      POSTGRES_USER: 'rails_app'
-      POSTGRES_PASSWORD: 'rails_app'
+      POSTGRES_USER: $DB_USER
+      POSTGRES_PASSWORD: $DB_PASSWORD
   webpacker:
     <<: *app_base
     ports:
