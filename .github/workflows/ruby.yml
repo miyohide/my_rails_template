@@ -16,8 +16,8 @@ on:
 env:
   RAILS_ENV: test
   DB_HOST: localhost
-  DB_USER: rails_app
-  DB_PASSWORD: rails_app
+  DB_USER: 'rails_app'
+  DB_PASSWORD: 'rails_app'
   REDIS_URL: 'redis://localhost:6379/1'
 
 jobs:
