@@ -41,4 +41,4 @@ vendor/bundle
 *.sqlite3
 
 # ignore docker-compose environment file
-.env
+.env*
