@@ -70,8 +70,6 @@ jobs:
         bundle install --jobs 4
     - name: yarn install
       run: bin/rails yarn:install
-    #- name: change database config file
-    #  run: cp -p config/database.yml.ci config/database.yml
     - name: create database
       run: bin/rails db:create
     - name: create tables
