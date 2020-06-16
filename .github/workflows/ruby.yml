@@ -15,7 +15,9 @@ on:
 
 env:
   RAILS_ENV: test
-  POSTGRES_HOST: localhost
+  DB_HOST: localhost
+  DB_USER: rails_app
+  DB_PASSWORD: rails_app
   REDIS_URL: 'redis://localhost:6379/1'
 
 jobs:
@@ -68,8 +70,6 @@ jobs:
         bundle install --jobs 4
     - name: yarn install
       run: bin/rails yarn:install
-    - name: change database config file
-      run: cp -p config/database.yml.ci config/database.yml
     - name: create database
       run: bin/rails db:create
     - name: create tables

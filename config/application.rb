@@ -31,8 +31,5 @@ module Myapp
 
     # Don't generate system test files.
     config.generators.system_tests = nil
-    config.hosts << '.azurewebsites.net'
-    # for test environment
-    config.hosts << 'www.example.com'
   end
 end
