@@ -6,6 +6,16 @@
 trigger:
 - master
 
+services:
+  redis:
+    image: redis:6.0-alpine
+    ports:
+      - 6379:6379
+  postgresql:
+    image: postgres:11.7
+    ports:
+      - 3306:3306
+
 pool:
   vmImage: 'ubuntu-latest'
 
@@ -24,3 +34,7 @@ steps:
 
 - script: yarn install
   displayName: 'yarn install'
+
+- script: |
+    apt install redis-tools
+    redis-cli -h redis ping
