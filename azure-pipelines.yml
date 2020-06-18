@@ -17,7 +17,7 @@ services:
       POSTGRES_USER: rails_user
       POSTGRES_PASSWORD: rails_user
     ports:
-      - 3306:3306
+      - 5432:5432
 
 pool:
   vmImage: 'ubuntu-latest'
