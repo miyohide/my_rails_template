@@ -22,6 +22,5 @@ steps:
     bundle install --retry=3 --jobs=4
   displayName: 'bundle install'
 
-- script: |
-    yarn install
+- script: yarn install
   displayName: 'yarn install'
