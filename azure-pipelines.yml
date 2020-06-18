@@ -36,5 +36,5 @@ steps:
   displayName: 'yarn install'
 
 - script: |
-    apt install redis-tools
+    sudo apt-get install redis-tools
     redis-cli -h redis ping
