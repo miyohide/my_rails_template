@@ -54,3 +54,6 @@ steps:
 
 - script: bin/rails db:migrate
   displayName: 'create tables'
+
+- script: bin/rails test
+  displayName: 'run tests'
