@@ -30,6 +30,12 @@ variables:
   REDIS_URL: 'redis://localhost:6379/1'
 
 steps:
+- task: Cache@2
+  inputs:
+    key: $(Build.SourcesDirectory)/Gemfile.lock
+    path: $(Build.SourcesDirectory)/vendor/bundle
+  displayName: Cache gem
+
 - task: UseRubyVersion@0
   inputs:
     versionSpec: '= 2.6'
@@ -37,9 +43,7 @@ steps:
 - script: sudo apt-get install libpq-dev
   displayName: 'install middleware'
 
-- script: |
-    gem install bundler
-    bundle install --retry=3 --jobs=4
+- script: bundle install --retry=3 --jobs=4 --path vendor/bundle
   displayName: 'bundle install'
 
 - script: yarn install
