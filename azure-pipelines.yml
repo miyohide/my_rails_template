@@ -14,8 +14,8 @@ services:
   postgresql:
     image: postgres:11.7
     env:
-      POSTGRES_USER: rails_user
-      POSTGRES_PASSWORD: rails_user
+      POSTGRES_USER: rails_app
+      POSTGRES_PASSWORD: rails_app
     ports:
       - 5432:5432
 
