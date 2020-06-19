@@ -50,7 +50,7 @@ steps:
   displayName: 'yarn install'
 
 - script: bin/rails db:create
-  displayName: 'db create'
+  displayName: 'create database'
 
 - script: bin/rails db:migrate
   displayName: 'create tables'
