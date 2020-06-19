@@ -51,3 +51,6 @@ steps:
 
 - script: bin/rails db:create
   displayName: 'db create'
+
+- script: bin/rails db:migrate
+  displayName: 'create tables'
