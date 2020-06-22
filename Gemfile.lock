@@ -149,6 +149,10 @@ GEM
       thor (>= 0.20.3, < 2.0)
     rainbow (3.0.0)
     rake (13.0.1)
+    rambulance (1.1.1)
+      actionpack
+      activesupport
+      railties
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
@@ -247,6 +251,7 @@ DEPENDENCIES
   pg
   puma (~> 4.1)
   rails (~> 6.0.2, >= 6.0.2.1)
+  rambulance
   redis (~> 4.0)
   redis-actionpack
   rubocop-performance
