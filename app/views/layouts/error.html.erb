@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Myapp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_pack_tag 'application' %>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-dark bg-dark">
+      <ul class="navbar-nav mr-auto"></ul>
+      <ul class="navbar-nav">
+        <div id="id">
+          <% if current_user %>
+            <%= link_to "Edit Profile", edit_user_path(current_user.id) %> |
+            <%= link_to "Logout", :logout, method: :post %>
+          <% else %>
+            <%= link_to "Register", new_user_path %> |
+            <%= link_to "Login", :login %>
+          <% end %>
+        </div>
+      </ul>
+    </nav>
+    <div class="container-fluid">
+      <% if flash[:notice].present? %>
+        <div id="notice" class="alert alert-primary alert-dismissible fade show" role="alert">
+          <%= flash[:notice] %>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <% end %>
+      <% if flash[:alert].present? %>
+        <div id="alert" class="alert alert-danger alert-dismissible fade show" role="alert">
+          <%= flash[:alert] %>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <% end %>
+      <%= yield %>
+    </div>
+  </body>
+</html>
