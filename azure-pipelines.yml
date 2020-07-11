@@ -57,3 +57,8 @@ steps:
 
 - script: bin/rails test
   displayName: 'run tests'
+
+- task: PublishCodeCoverageResults@1
+  inputs:
+    codeCoverageTool: 'Cobertura'
+    summaryFileLocation: 'coverage/coverage.xml'
