@@ -58,6 +58,11 @@ steps:
 - script: bin/rails test
   displayName: 'run tests'
 
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: 'test/reports/TEST-*.xml'
+
 - task: PublishCodeCoverageResults@1
   inputs:
     codeCoverageTool: 'Cobertura'
