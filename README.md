@@ -1,22 +1,48 @@
 # これは何か
 
-Rails 6.0のサンプルアプリです。Azure Web Apps上で
-動かすことを念頭に置いています。
+Rails 6.0のサンプルアプリです。Azure Web Apps上で動かすことを念頭に置いています。
 
-# 作り方
+# 手元での動かし方
 
-最初に`Dockerfile`、`Gemfile`、`Gemfile.lock`、`entrypoint.sh`、`docker-compose.yml`を作成します。
-それぞれの内容は https://github.com/miyohide/rails_for_azure_webapps/tree/d2e0d6bb409a77d6a3f6165d904ef2fb7b100014 の内容をみると良いかと思います。
+## 1. Gemのインストール
 
-その後、`rails new`を実行します。
+以下のコマンドを実行してGemをインストールします。
 
-`rails new`コマンドは以下のオプションを指定します。
-
-```
-docker-compose run --rm web rails new . --force --no-deps -T -G --skip-turbolinks
+```bash
+$ docker-compose run --rm web bundle install
 ```
 
-ポイントは、`-G`オプションを指定しているところです。Gitリポジトリとして構築しているところでさらに`rails new`の処理中に`git init`を実行されると`rails new`が途中で終了してしますので`-G`をつけています。
+## 2. データベースの作成
+
+PostgreSQLのデータベースを作成します。
+
+```bash
+$ docker-compose run --rm web bin/rails db:create
+```
+
+## 3. テーブルなどの作成
+
+`db:migrate`を実行してテーブルなどを作成します。
+
+```bash
+$ docker-compose run --rm web bin/rails db:migrate
+```
+
+## 4. 起動
+
+アプリケーションを起動します。起動後は`localhost:3000`にアクセスします。
+
+```bash
+$ docker-compose up
+```
+
+## 5. 終了方法
+
+別のターミナルで以下のコマンドを実行します。
+
+```bash
+$ docker-compose down
+```
 
 # Gemの追加
 
