@@ -1,7 +1,7 @@
 FROM node:12.16.3-slim as node
 FROM ruby:2.6.6-slim
 
-# Install Node.js and Yarn
+# NodeとYarnのインストール
 ENV YARN_VERSION 1.22.4
 RUN mkdir -p /opt
 
@@ -13,7 +13,7 @@ RUN ln -s /opt/yarn/bin/yarn /usr/local/bin/yarn \
   && ln -s /usr/local/bin/node /usr/local/bin/nodejs \
   && ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm \
   && ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npx
-
+# 各種Gemのインストールに必要なライブラリをインストール
 RUN apt-get update && apt-get install -y \
     build-essential \
     libpq-dev \
@@ -28,11 +28,11 @@ COPY . /myapp
 
 RUN yarn install
 
-# Add a script to be executed every time the container starts.
+# コンテナ開始時にスクリプトの登録と実行
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
 ENTRYPOINT ["entrypoint.sh"]
 EXPOSE 3000
 
-# Start the main process.
+# webアプリの起動
 CMD ["rails", "server", "-b", "0.0.0.0"]
