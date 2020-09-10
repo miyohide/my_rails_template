@@ -29,7 +29,7 @@ services:
       - redis_data:/data
     command: redis-server
   db:
-    image: postgres:11.7
+    image: postgres:11.9-alpine
     ports:
       - "3306:3306"
     volumes:
