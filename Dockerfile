@@ -1,4 +1,4 @@
-FROM node:12.16.3-slim as node
+FROM node:12.18.3-slim as node
 FROM ruby:2.6.6-slim
 
 # NodeとYarnのインストール
