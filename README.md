@@ -4,12 +4,12 @@ Rails 6.0のサンプルアプリです。Azure Web Apps上で動かすことを
 
 # 手元での動かし方
 
-## 1. Gemのインストール
+## 1. Dockerイメージを作成する
 
-以下のコマンドを実行してGemをインストールします。
+以下のコマンドを実行してDockerイメージを作成します。
 
 ```bash
-$ docker-compose run --rm web bundle install
+$ docker-compose build
 ```
 
 ## 2. データベースの作成
