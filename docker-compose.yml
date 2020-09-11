@@ -9,6 +9,7 @@ services:
     volumes:
       - .:/myapp
       - bundle:/usr/local/bundle
+      - node_modules:/myapp/node_modules
     ports:
       - "3000:3000"
     environment:
@@ -46,3 +47,4 @@ volumes:
   bundle:
   db_data:
   redis_data:
+  node_modules:
