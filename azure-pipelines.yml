@@ -8,11 +8,11 @@ trigger:
 
 services:
   redis:
-    image: redis:6.0-alpine
+    image: redis:6.0.8-alpine
     ports:
       - 6379:6379
   postgresql:
-    image: postgres:11.7
+    image: postgres:11.9-alpine
     env:
       POSTGRES_USER: rails_app
       POSTGRES_PASSWORD: rails_app
