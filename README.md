@@ -44,12 +44,30 @@ $ docker-compose up
 $ docker-compose down
 ```
 
-# Gemの追加
+# メンテナンス方法
 
-Gemを追加したいときは、`Gemfile`に追加したいGemを記入したあと以下のコマンドを実行する。
+## Gemの追加
+
+`Gemfile`に追加したいGemを記入したあと以下のコマンドを実行します。
 
 ```
 docker-compose run --rm web bundle install
+```
+
+## Gemの更新
+
+以下のコマンドを実行します。
+
+```
+docker-compose run --rm web bundle update
+```
+
+## JavaScriptのライブラリの更新
+
+以下のコマンドを実行します。
+
+```
+docker-compose run --rm web yarn upgrade
 ```
 
 # 起動後アプリにアクセスすると`Sprockets::FileNotFound`がでる
