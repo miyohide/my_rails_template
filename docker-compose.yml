@@ -14,7 +14,10 @@ services:
       - "3000:3000"
     environment:
       RAILS_ENV: $DOCKER_RAILS_ENV
-      REDIS_URL: $REDIS_URL
+      REDIS_HOST: $REDIS_HOST
+      REDIS_PORT: $REDIS_PORT
+      REDIS_DB: $REDIS_DB
+      REDIS_PASSWORD: $REDIS_PASSWORD
       WEBPACKER_DEV_SERVER_HOST: $WEBPACKER_DEV_SERVER_HOST
       DB_USER: $DB_USER
       DB_PASSWORD: $DB_PASSWORD
@@ -28,7 +31,7 @@ services:
       - 6379:6379
     volumes:
       - redis_data:/data
-    command: redis-server
+    command: redis-server --requirepass hogehoge
   db:
     image: postgres:11.9-alpine
     ports:
