@@ -16,7 +16,7 @@ Rails 6.0のサンプルアプリです。Azure Web Apps上で動かすことを
 $ docker-compose build
 ```
 
-## 5. 起動
+## 3. 起動
 
 アプリケーションを起動します。起動後は`localhost:3000`にアクセスします。
 
@@ -26,7 +26,7 @@ $ docker-compose up
 
 なお、起動時に`entrypoint.sh`にて`rails db:prepare`を実行しているため、別途`db:create`や`db:migrate`は不要です。
 
-## 6. 終了方法
+## 4. 終了方法
 
 別のターミナルで以下のコマンドを実行します。
 
