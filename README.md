@@ -8,7 +8,7 @@ Rails 6.0のサンプルアプリです。Azure Web Apps上で動かすことを
 
 `docker-compose.yml`内で指定している環境変数を`.env`ファイルから参照するようにしています（see. https://docs.docker.jp/compose/environment-variables.html#env ）。サンプルとして`sample.env`を用意していますので、これをコピーして使用してください。
 
-## 1. Dockerイメージを作成する
+## 2. Dockerイメージを作成する
 
 以下のコマンドを実行してDockerイメージを作成します。
 
@@ -16,7 +16,7 @@ Rails 6.0のサンプルアプリです。Azure Web Apps上で動かすことを
 $ docker-compose build
 ```
 
-## 2. データベースの作成
+## 3. データベースの作成
 
 PostgreSQLのデータベースを作成します。
 
@@ -24,7 +24,7 @@ PostgreSQLのデータベースを作成します。
 $ docker-compose run --rm web bin/rails db:create
 ```
 
-## 3. テーブルなどの作成
+## 4. テーブルなどの作成
 
 `db:migrate`を実行してテーブルなどを作成します。
 
@@ -32,7 +32,7 @@ $ docker-compose run --rm web bin/rails db:create
 $ docker-compose run --rm web bin/rails db:migrate
 ```
 
-## 4. 起動
+## 5. 起動
 
 アプリケーションを起動します。起動後は`localhost:3000`にアクセスします。
 
@@ -40,7 +40,7 @@ $ docker-compose run --rm web bin/rails db:migrate
 $ docker-compose up
 ```
 
-## 5. 終了方法
+## 6. 終了方法
 
 別のターミナルで以下のコマンドを実行します。
 
