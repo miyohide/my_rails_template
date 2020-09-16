@@ -16,22 +16,6 @@ Rails 6.0のサンプルアプリです。Azure Web Apps上で動かすことを
 $ docker-compose build
 ```
 
-## 3. データベースの作成
-
-PostgreSQLのデータベースを作成します。
-
-```bash
-$ docker-compose run --rm web bin/rails db:create
-```
-
-## 4. テーブルなどの作成
-
-`db:migrate`を実行してテーブルなどを作成します。
-
-```bash
-$ docker-compose run --rm web bin/rails db:migrate
-```
-
 ## 5. 起動
 
 アプリケーションを起動します。起動後は`localhost:3000`にアクセスします。
