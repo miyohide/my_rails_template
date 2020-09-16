@@ -24,6 +24,8 @@ $ docker-compose build
 $ docker-compose up
 ```
 
+なお、起動時に`entrypoint.sh`にて`rails db:prepare`を実行しているため、別途`db:create`や`db:migrate`は不要です。
+
 ## 6. 終了方法
 
 別のターミナルで以下のコマンドを実行します。
