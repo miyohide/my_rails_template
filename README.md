@@ -4,6 +4,10 @@ Rails 6.0のサンプルアプリです。Azure Web Apps上で動かすことを
 
 # 手元での動かし方
 
+## 1. .envファイルを作成する
+
+`docker-compose.yml`内で指定している環境変数を`.env`ファイルから参照するようにしています（see. https://docs.docker.jp/compose/environment-variables.html#env ）。サンプルとして`sample.env`を用意していますので、これをコピーして使用してください。
+
 ## 1. Dockerイメージを作成する
 
 以下のコマンドを実行してDockerイメージを作成します。
