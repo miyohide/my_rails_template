@@ -8,7 +8,9 @@ trigger:
 
 services:
   redis:
-    image: redis:6.0.8-alpine
+    image: bitnami/redis:6.0.8
+    env:
+      REDIS_PASSWORD=hogehoge
     ports:
       - 6379:6379
   postgresql:
@@ -30,7 +32,7 @@ variables:
   REDIS_HOST: localhost
   REDIS_PORT: 6379
   REDIS_DB: 1
-  REDIS_PASSWORD:
+  REDIS_PASSWORD: hogehoge
 
 steps:
 - task: Cache@2
