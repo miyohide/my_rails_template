@@ -10,7 +10,7 @@ services:
   redis:
     image: bitnami/redis:6.0.8
     env:
-      REDIS_PASSWORD=hogehoge
+      REDIS_PASSWORD: hogehoge
     ports:
       - 6379:6379
   postgresql:
