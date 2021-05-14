@@ -13,35 +13,14 @@
 !/log/.keep
 !/tmp/.keep
 
-# Ignore uploaded files in development
-/storage/*
-!/storage/.keep
+# Ignore pidfiles, but keep the directory.
+/tmp/pids/*
+!/tmp/pids/
+!/tmp/pids/.keep
 
-/node_modules
-/yarn-error.log
 
 /public/assets
 .byebug_history
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
-
-.idea/
-coverage/
-
-/public/packs
-/public/packs-test
-/node_modules
-/yarn-error.log
-yarn-debug.log*
-.yarn-integrity
-vendor/bundle
-
-# ignore SQLite3 file
-*.sqlite3
-
-# ignore docker-compose environment file
-.env*
-
-# ignore test report
-test/reports
