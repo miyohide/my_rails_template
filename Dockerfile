@@ -1,5 +1,5 @@
-FROM node:14.16.1-slim as node
-FROM ruby:2.6.7-slim
+FROM node:14.17.0-slim as node
+FROM ruby:2.7.3-slim
 
 # NodeとYarnのインストール
 ENV YARN_VERSION 1.22.5
