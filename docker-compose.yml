@@ -8,12 +8,12 @@ services:
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
       - .:/myapp
-      - bundle:/usr/local/bundle
-      - node_modules:/myapp/node_modules
+      # - bundle:/usr/local/bundle
+      # - node_modules:/myapp/node_modules
     ports:
       - "3000:3000"
     environment:
-      WEBPACKER_DEV_SERVER_HOST: $WEBPACKER_DEV_SERVER_HOST
+      # WEBPACKER_DEV_SERVER_HOST: $WEBPACKER_DEV_SERVER_HOST
       DB_USER: $DB_USER
       DB_PASSWORD: $DB_PASSWORD
       DB_HOST: $DB_HOST
@@ -28,12 +28,12 @@ services:
     environment:
       POSTGRES_USER: $DB_USER
       POSTGRES_PASSWORD: $DB_PASSWORD
-  webpacker:
-    <<: *app_base
-    ports:
-      - "3305:3305"
-    command: bin/webpack-dev-server
+  # webpacker:
+  #   <<: *app_base
+  #   ports:
+  #     - "3305:3305"
+  #   command: bin/webpack-dev-server
 volumes:
-  bundle:
+#  bundle:
   db_data:
-  node_modules:
+#   node_modules:
