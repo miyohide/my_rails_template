@@ -34,3 +34,6 @@ yarn-debug.log*
 
 # Ignore Rubymine generates files
 /.idea/
+
+# Ignore macos config files
+.DS_Store
