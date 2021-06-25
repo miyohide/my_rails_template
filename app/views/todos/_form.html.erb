@@ -11,14 +11,18 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class="field row mb-3">
+    <%= form.label :title, class: 'col-sm-2 form-label' %>
+    <div class="col-sm-5">
+      <%= form.text_field :title, class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body %>
+  <div class="field row mb-3">
+    <%= form.label :body, class: 'col-sm-2 form-label' %>
+    <div class="col-sm-5">
+      <%= form.text_area :body, class: 'form-control' %>
+    </div>
   </div>
 
   <div class="actions">
