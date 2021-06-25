@@ -94,3 +94,5 @@ Rails.start()
 
 Azure Web Apps上で動かしたときに、「Blocked host: xxxx..azurewebsites.net」と出力される。
 これは[Rails 6.0から導入されたDNSリバインディング攻撃からの保護](https://railsguides.jp/6_0_release_notes.html#action-pack-%E4%B8%BB%E3%81%AA%E5%A4%89%E6%9B%B4)のため。対策は、`config/application.rb`や`config/environments/production.rb`にて`config.hosts << ".azurewebsites.net"`を追加する。先頭にピリオドを入れておくと、サブドメイン含めて対応できる。
+
+aaa
