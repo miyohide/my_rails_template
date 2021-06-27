@@ -88,6 +88,20 @@ import "../stylesheets/application.scss"
 Rails.start()
 ```
 
+## Rails generateで生成するファイルを制御する
+
+`config/application.rb`に対して以下の記述を追加する。
+
+```ruby
+    config.generators do |g|
+      g.stylesheets false
+      g.javascripts false
+      g.helper false
+    end
+```
+
+詳細は[Rails ジェネレータとテンプレート入門](https://railsguides.jp/generators.html)を参照。
+
 ## Azure Web Appsで動かす
 
 ### DNSリバインディング攻撃から保護する

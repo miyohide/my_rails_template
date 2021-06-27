@@ -34,5 +34,13 @@ module App
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # bin/rails generate で生成されるファイルを制御する
+    # see. https://railsguides.jp/generators.html
+    config.generators do |g|
+      g.stylesheets false
+      g.javascripts false
+      g.helper false
+    end
   end
 end
