@@ -59,6 +59,13 @@ $ docker-compose run --rm web bash
 root@xxxxxx:/app# bundle install
 ```
 
+## JavaScriptのライブラリを更新
+
+```
+$ docker-compose run --rm web bash
+root@xxxxxx:/app# yarn upgrade
+```
+
 ## Bootstrapを導入する
 
 yarnコマンドを使ってインストールする。
