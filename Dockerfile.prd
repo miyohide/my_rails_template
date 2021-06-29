@@ -18,7 +18,9 @@ WORKDIR /app
 
 COPY Gemfile /app/Gemfile
 COPY Gemfile.lock /app/Gemfile.lock
-RUN bundle install --without development test
+# developmentとtestのgemはインストールしない
+RUN bundle config set --local without 'development test'
+RUN bundle install
 COPY . /app
 
 RUN yarn install
