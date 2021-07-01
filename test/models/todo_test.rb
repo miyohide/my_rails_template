@@ -15,4 +15,34 @@ class TodoTest < ActiveSupport::TestCase
     todo = Todo.new(title: "test title", body: "test body")
     assert todo.save
   end
+
+  test "長いタイトル - 1文字入力すると、保存できる" do
+    todo = Todo.new(title: "a" * 200, body: "test body")
+    assert todo.save
+  end
+
+  test "長いタイトルを入力すると、バリデーションエラー" do
+    todo = Todo.new(title: "a" * 201, body: "test body")
+    assert_not todo.save
+  end
+
+  test "空文字タイトルを入力すると、バリデーションエラー" do
+    todo = Todo.new(title: "", body: "test body")
+    assert_not todo.save
+  end
+
+  test "空白文字タイトルを入力すると、バリデーションエラー" do
+    todo = Todo.new(title: "   ", body: "test body")
+    assert_not todo.save
+  end
+
+  test "空文字本文を入力すると、バリデーションエラー" do
+    todo = Todo.new(title: "test title", body: "")
+    assert_not todo.save
+  end
+
+  test "空白文字本文を入力すると、バリデーションエラー" do
+    todo = Todo.new(title: "test title", body: "    ")
+    assert_not todo.save
+  end
 end
