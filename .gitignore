@@ -37,3 +37,6 @@ yarn-debug.log*
 
 # Ignore macos config files
 .DS_Store
+
+# Ignore coverage directory
+/coverage/
