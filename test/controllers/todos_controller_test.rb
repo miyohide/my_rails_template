@@ -40,6 +40,11 @@ class TodosControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "バリデーションエラーの時、422エラー（Unprocessable Entity）を返すこと" do
+    patch todo_url(@todo), params: { todo: { body: "", title: "" } }
+    assert_response :unprocessable_entity
+  end
+
   test "should update todo" do
     patch todo_url(@todo), params: { todo: { body: @todo.body, title: @todo.title } }
     assert_redirected_to todo_url(@todo)
