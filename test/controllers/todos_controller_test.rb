@@ -23,6 +23,13 @@ class TodosControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to todo_url(Todo.last)
   end
 
+  test "バリデーションエラーの時、todoは作られないこと" do
+    assert_no_difference('Todo.count') do
+      post todos_url, params: { todo: { body: "", title: "" } }
+    end
+    assert_response :unprocessable_entity
+  end
+
   test "should show todo" do
     get todo_url(@todo)
     assert_response :success
