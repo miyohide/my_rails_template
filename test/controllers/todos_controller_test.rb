@@ -16,7 +16,7 @@ class TodosControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create todo" do
-    assert_difference('Todo.count') do
+    assert_difference("Todo.count") do
       post todos_url, params: { todo: { body: @todo.body, title: @todo.title } }
     end
 
@@ -24,7 +24,7 @@ class TodosControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "バリデーションエラーの時、todoは作られないこと" do
-    assert_no_difference('Todo.count') do
+    assert_no_difference("Todo.count") do
       post todos_url, params: { todo: { body: "", title: "" } }
     end
     assert_response :unprocessable_entity
@@ -51,7 +51,7 @@ class TodosControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy todo" do
-    assert_difference('Todo.count', -1) do
+    assert_difference("Todo.count", -1) do
       delete todo_url(@todo)
     end
 
