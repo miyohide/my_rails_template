@@ -20,13 +20,9 @@ Layout/EmptyLinesAroundBlockBody:
 Layout/IndentationConsistency:
   EnforcedStyle: indented_internal_methods
 
-# Offense count: 4
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, IndentationWidth.
-# SupportedStyles: aligned, indented, indented_relative_to_receiver
+# Railsが生成するものに合わせて複数行のものは桁を合わせずインデント
 Layout/MultilineMethodCallIndentation:
-  Exclude:
-    - 'bin/yarn'
+  EnforcedStyle: indented
 
 # Offense count: 1
 # Cop supports --auto-correct.
