@@ -10,13 +10,10 @@
 Layout/EmptyLinesAroundAccessModifier:
   EnforcedStyle: only_before
 
-# Offense count: 4
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: empty_lines, no_empty_lines
+# blockの周りには空行を入れないが自動生成されるdb/schema.rbは
+# 対象外
 Layout/EmptyLinesAroundBlockBody:
   Exclude:
-    - 'config/initializers/rambulance.rb'
     - 'db/schema.rb'
 
 # Offense count: 2
