@@ -20,13 +20,6 @@ Layout/EmptyLinesAroundBlockBody:
 Layout/IndentationConsistency:
   EnforcedStyle: indented_internal_methods
 
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: Width, IgnoredPatterns.
-Layout/IndentationWidth:
-  Exclude:
-    - 'app/controllers/todos_controller.rb'
-
 # Offense count: 4
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, IndentationWidth.
