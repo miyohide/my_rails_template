@@ -6,14 +6,9 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: around, only_before
+# privateなどは前に空行、後は空行を入れない
 Layout/EmptyLinesAroundAccessModifier:
-  Exclude:
-    - 'app/controllers/todos_controller.rb'
+  EnforcedStyle: only_before
 
 # Offense count: 4
 # Cop supports --auto-correct.
