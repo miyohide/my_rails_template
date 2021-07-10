@@ -62,14 +62,6 @@ Style/AsciiComments:
     - 'config/initializers/form_errors_customizer.rb'
     - 'test/test_helper.rb'
 
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: nested, compact
-Style/ClassAndModuleChildren:
-  Exclude:
-    - 'test/test_helper.rb'
-
 # Offense count: 6
 # Configuration parameters: AllowedConstants.
 Style/Documentation:
