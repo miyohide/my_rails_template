@@ -79,12 +79,6 @@ Style/Documentation:
 Style/EmptyMethod:
   EnforcedStyle: expanded
 
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/ExpandPathArguments:
-  Exclude:
-    - 'bin/bundle'
-
 # FrozenStringLiteralCommentは
 # 強制しない。いずれデフォルト化されるかと。
 # see. https://koic.hatenablog.com/entry/abandon-making-frozen-string-literals-default-for-ruby3
