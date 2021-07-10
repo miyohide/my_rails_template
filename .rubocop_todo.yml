@@ -75,13 +75,9 @@ Style/Documentation:
     - 'config/application.rb'
     - 'db/migrate/20210623115620_create_todos.rb'
 
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: compact, expanded
+# 空のメソッドでも1行にはまとめない
 Style/EmptyMethod:
-  Exclude:
-    - 'app/controllers/todos_controller.rb'
+  EnforcedStyle: expanded
 
 # Offense count: 1
 # Cop supports --auto-correct.
