@@ -94,12 +94,6 @@ Style/NumericLiterals:
   Exclude:
     - 'db/schema.rb'
 
-# Offense count: 2
-# Cop supports --auto-correct.
-Style/StderrPuts:
-  Exclude:
-    - 'bin/yarn'
-
 # Railsで生成するファイルたちが二重引用符を使っていることが
 # 多かったので、double_quotesに設定した
 Style/StringLiterals:
