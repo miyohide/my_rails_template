@@ -85,11 +85,9 @@ Style/EmptyMethod:
 Style/FrozenStringLiteralComment:
   Enabled: false
 
-# Offense count: 2
-# Cop supports --auto-correct.
+# 1行で書けるIf/Unlessは検知しない
 Style/IfUnlessModifier:
-  Exclude:
-    - 'bin/bundle'
+  Enabled: false
 
 # Offense count: 1
 # Cop supports --auto-correct.
