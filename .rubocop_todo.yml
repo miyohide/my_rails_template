@@ -99,14 +99,9 @@ Style/NumericLiterals:
 Style/StringLiterals:
   EnforcedStyle: double_quotes
 
-# Offense count: 3
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, MinSize.
-# SupportedStyles: percent, brackets
+# シンボルの配列は括弧で
 Style/SymbolArray:
-  Exclude:
-    - 'Gemfile'
-    - 'config/initializers/filter_parameter_logging.rb'
+  EnforcedStyle: brackets
 
 # Offense count: 3
 # Cop supports --auto-correct.
