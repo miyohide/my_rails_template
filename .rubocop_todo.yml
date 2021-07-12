@@ -89,9 +89,7 @@ Style/FrozenStringLiteralComment:
 Style/IfUnlessModifier:
   Enabled: false
 
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: MinDigits, Strict.
+# 数値は３桁ごとに_を使う。dbのスキーマーファイルは除外
 Style/NumericLiterals:
   Exclude:
     - 'db/schema.rb'
