@@ -91,13 +91,6 @@ Style/IfUnlessModifier:
 
 # Offense count: 1
 # Cop supports --auto-correct.
-# Configuration parameters: InverseMethods, InverseBlocks.
-Style/InverseMethods:
-  Exclude:
-    - 'bin/yarn'
-
-# Offense count: 1
-# Cop supports --auto-correct.
 # Configuration parameters: MinDigits, Strict.
 Style/NumericLiterals:
   Exclude:
