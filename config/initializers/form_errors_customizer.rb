@@ -6,13 +6,13 @@ ActionView::Base.field_error_proc = proc do |html_tag, instance|
       error_msg.each do |msg|
         html_list_errors.insert(-6, "<li>#{msg}</li>")
       end
-      %{<div class='invalid-feedback'>#{html_list_errors}</div>}.html_safe
+      %(<div class='invalid-feedback'>#{html_list_errors}</div>).html_safe
     elsif error_msg.respond_to?(:first)
       # 該当フォームのエラーメッセージが配列として格納されている場合
-      %{<div class='invalid-feedback mb-1'>#{error_msg.first}</div>}.html_safe
+      %(<div class='invalid-feedback mb-1'>#{error_msg.first}</div>).html_safe
     else
       # 該当フォームのエラーメッセージが文字列の場合
-      %{<div class='invalid-feedback mb-1'>#{error_msg}</div>}.html_safe
+      %(<div class='invalid-feedback mb-1'>#{error_msg}</div>).html_safe
     end
   end
 
