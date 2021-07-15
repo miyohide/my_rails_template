@@ -97,3 +97,7 @@ Style/SymbolArray:
 
 Layout/LineLength:
   Max: 198
+
+# コメントはASCII以外も使ってOK
+Style/AsciiComments:
+    Enabled: false
