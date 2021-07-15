@@ -58,3 +58,5 @@ jobs:
       run: bin/rails db:migrate
     - name: Run tests
       run: bundle exec rake
+    - name: Run rubocop
+      run: bundle exec rubocop
