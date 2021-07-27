@@ -21,6 +21,8 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y openssh-server
 RUN echo "root:Docker!" | chpasswd
 
+COPY sshd_config /etc/ssh/
+
 COPY Gemfile /app/Gemfile
 COPY Gemfile.lock /app/Gemfile.lock
 # developmentとtestのgemはインストールしない
@@ -31,9 +33,9 @@ COPY . /app
 RUN yarn install
 RUN RAILS_ENV=production bin/rails assets:precompile
 
-COPY entrypoint.sh /usr/bin/
-RUN chmod +x /usr/bin/entrypoint.sh
-ENTRYPOINT ["entrypoint.sh"]
+COPY entrypoint.azure.sh /usr/bin/
+RUN chmod +x /usr/bin/entrypoint.azure.sh
+ENTRYPOINT ["entrypoint.azure.sh"]
 # setup SSH deamon for Azure Web Apps
 # see. https://docs.microsoft.com/ja-jp/azure/app-service/configure-custom-container?pivots=container-linux#enable-ssh
 EXPOSE 3000 2222
