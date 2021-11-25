@@ -9,7 +9,6 @@ services:
 
   web: &web
     build: .
-    image: app:1.0.0
     stdin_open: true
     tty: true
     volumes:
