@@ -1,0 +1,17 @@
+name: Create Docker Image
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: create Docker Image
+      run: |
+        docker build -f Dockerfile.prd -t rails_for_azure_webapps:latest .
