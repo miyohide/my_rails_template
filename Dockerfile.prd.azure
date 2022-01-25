@@ -26,7 +26,7 @@ COPY sshd_config /etc/ssh/
 COPY Gemfile /app/Gemfile
 COPY Gemfile.lock /app/Gemfile.lock
 # developmentとtestのgemはインストールしない
-RUN bundle config set --local without 'development test'
+# RUN bundle config set --local without 'development test'
 RUN bundle install
 COPY . /app
 
