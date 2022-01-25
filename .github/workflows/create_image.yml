@@ -7,11 +7,20 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  build-for-production:
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
-    - name: create Docker Image
+    - name: create Docker Image for Production
       run: |
         docker build -f Dockerfile.prd -t rails_for_azure_webapps:latest .
+
+  build-for-azure:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: create Docker Image for Azure
+      run: |
+        docker build -f Dockerfile.prd.azure -t rails_for_azure_webapps_azure:latest .
