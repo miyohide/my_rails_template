@@ -22,7 +22,7 @@ COPY Gemfile /app/Gemfile
 COPY Gemfile.lock /app/Gemfile.lock
 # developmentとtestのgemはインストールしない
 # RUN bundle config set --local without 'development test'
-RUN bundle install
+RUN bundle install --deployment
 COPY . /app
 
 RUN yarn install
