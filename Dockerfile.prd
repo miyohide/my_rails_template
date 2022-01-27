@@ -22,6 +22,8 @@ COPY Gemfile /app/Gemfile
 COPY Gemfile.lock /app/Gemfile.lock
 # developmentとtestのgemはインストールしない
 RUN bundle config set --local without 'development test'
+# CIやデプロイ用の設定
+# see. https://bundler.io/man/bundle-install.1.html#DEPLOYMENT-MODE
 RUN bundle config set --local deployment 'true'
 RUN bundle install
 COPY . /app
