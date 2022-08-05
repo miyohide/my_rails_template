@@ -1,5 +1,0 @@
-inherit_from: .rubocop_todo.yml
-
-# コメントはASCII以外も使ってOK
-Style/AsciiComments:
-  Enabled: false
