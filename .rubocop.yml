@@ -3,4 +3,4 @@ AllCops:
     - 'db/**/*'
     - 'config/**/*'
     - 'script/**/*'
-    - 'bin/{rails,rake}'
+    - 'bin/{rails,rake,bundle,setup}'
