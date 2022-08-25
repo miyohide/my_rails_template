@@ -4,3 +4,6 @@ AllCops:
     - 'config/**/*'
     - 'script/**/*'
     - 'bin/{rails,rake,bundle,setup}'
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
