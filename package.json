@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build": "webpack --config webpack.config.js",
-    "format": "prettier --write 'app/javascript/**/*.js'"
+    "format": "prettier-eslint --write 'app/javascript/**/*.js'"
   },
   "devDependencies": {
     "eslint-config-google": "^0.14.0",
