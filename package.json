@@ -8,7 +8,8 @@
     "webpack-cli": "^4.10.0"
   },
   "scripts": {
-    "build": "webpack --config webpack.config.js"
+    "build": "webpack --config webpack.config.js",
+    "format": "prettier --write 'app/javascript/**/*.js'"
   },
   "devDependencies": {
     "prettier": "^2.7.1"
