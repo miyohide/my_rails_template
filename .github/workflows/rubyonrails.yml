@@ -35,7 +35,7 @@ jobs:
           bundler-cache: true
       # Setup nodejs
       - name: Setup nodejs
-        run: npm ci
+        run: yarn install --frozen-lockfile
       # Add or replace database setup steps here
       - name: Set up database schema
         run: bin/rails db:schema:load
