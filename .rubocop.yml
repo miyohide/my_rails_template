@@ -4,6 +4,7 @@ AllCops:
     - 'config/**/*'
     - 'script/**/*'
     - 'bin/{rails,rake,bundle,setup}'
+    - 'vendor/**/*'
 
 Style/FrozenStringLiteralComment:
   Enabled: false
