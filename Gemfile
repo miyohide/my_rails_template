@@ -53,6 +53,7 @@ group :development, :test do
   gem 'brakeman'
   gem 'bundler-audit'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'rubocop-rails', require: false
 end
 
 group :development do
@@ -72,5 +73,3 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
-
-gem 'rubocop-rails', require: false
