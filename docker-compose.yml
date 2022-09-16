@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    image: rails_for_azure_webapps:0.0.1
+    stdin_open: true
+    tty: true
+    volumes:
+      - .:/app:cached
+      - bundle:/app/vendor/bundle
+      - node_modules:/app/node_modules
+    environment:
+      BUNDLE_PATH: "/app/vendor/bundle"
+    command: ["bin/rails", "server", "-b", "0.0.0.0"]
+    expose: ["3000"]
+    ports: ["3000:3000"]
+    working_dir: /app
+
+volumes:
+  bundle:
+  node_modules:
