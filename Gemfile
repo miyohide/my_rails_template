@@ -74,3 +74,6 @@ group :test do
   gem 'simplecov', require: false
   gem 'webdrivers'
 end
+
+# A simple and safe way to dynamically render error pages for Rails apps. / [Rambulance](https://github.com/yuki24/rambulance)
+gem 'rambulance'
