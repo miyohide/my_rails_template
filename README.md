@@ -2,6 +2,10 @@
 
 Railsを使ったテンプレートプロジェクトです
 
+# 起動の方法
+
+`bin/dev`で起動する。
+
 # Bootstrapの導入方法
 
 Bootstrapの導入方法については、[公式サイトにWebpackを使った導入方法について記載がある](https://getbootstrap.com/docs/5.3/getting-started/webpack/)のでそれを参照すること。日本語だと、[ICS MEDIAの「最新版で学ぶwebpack 5入門 Bootstrapをバンドルする方法」](https://ics.media/entry/17749/)が良いかなと思う。
