@@ -80,3 +80,5 @@ gem 'rambulance'
 
 # CSS Bundling for Rails. [https://github.com/rails/cssbundling-rails]
 gem 'cssbundling-rails', '~> 1.1'
+
+gem "rails_semantic_logger", "~> 4.11"
