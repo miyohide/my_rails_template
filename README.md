@@ -8,7 +8,9 @@ Railsを使ったテンプレートプロジェクトです
 
 # Bootstrapの導入方法
 
-Bootstrapの導入方法については、[公式サイトにWebpackを使った導入方法について記載がある](https://getbootstrap.com/docs/5.3/getting-started/webpack/)のでそれを参照すること。日本語だと、[ICS MEDIAの「最新版で学ぶwebpack 5入門 Bootstrapをバンドルする方法」](https://ics.media/entry/17749/)が良いかなと思う。
+Bootstrapの導入方法については、[Rails7時代のJS/CSSバンドルの新常識](https://hazm.jp/archives/147)を参考に、[cssbundling-rails](https://github.com/rails/cssbundling-rails)を使って導入した。
+
+# RailsのHTMLタグにおけるclassの指定方法
 
 RailsのHTMLタグにおけるclassの指定方法については、[RailsのFormBuilderのAPI](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html)を確認すること。
 
