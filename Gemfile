@@ -77,3 +77,6 @@ end
 
 # A simple and safe way to dynamically render error pages for Rails apps. / [Rambulance](https://github.com/yuki24/rambulance)
 gem 'rambulance'
+
+# CSS Bundling for Rails. [https://github.com/rails/cssbundling-rails]
+gem 'cssbundling-rails', '~> 1.1'
