@@ -20,9 +20,8 @@ module RailsForAzureWebapps
     # config.eager_load_paths << Rails.root.join("extras")
 
     # semantic_loggerの設定
-    # ファイル出力はしない
-    config.rails_semantic_logger.add_file_appender = false
-    # 標準出力だけして、JSON形式で出力する
-    config.semantic_logger.add_appender(io: $stdout, level: config.log_level, formatter: :json)
+    # JSON形式で出力する
+    config.rails_semantic_logger.format = :json
+    config.semantic_logger.add_appender(file_name: File.join("log", "#{Rails.env}.json"), formatter: :json)
   end
 end
