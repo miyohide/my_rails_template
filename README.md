@@ -14,6 +14,10 @@ Bootstrapの導入方法については、[Rails7時代のJS/CSSバンドルの�
 
 RailsのHTMLタグにおけるclassの指定方法については、[RailsのFormBuilderのAPI](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html)を確認すること。
 
+# LogのJSON化
+
+最初は[Lograge](https://github.com/roidrage/lograge)でも使えばいいかなと思っていたんだけれども、Rails 7への対応が明記されていないので、[Semantic Logger](https://logger.rocketjob.io/rails)を使ってみることにした。
+
 # Prettierの導入
 
 ICS Mediaの以下の記事を参考にした。
