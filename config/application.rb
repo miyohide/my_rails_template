@@ -18,5 +18,10 @@ module RailsForAzureWebapps
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    # semantic_loggerの設定
+    # JSON形式で出力する
+    config.rails_semantic_logger.format = :json
+    config.semantic_logger.add_appender(file_name: File.join("log", "#{Rails.env}.json"), formatter: :json)
   end
 end
