@@ -18,6 +18,10 @@ RailsのHTMLタグにおけるclassの指定方法については、[RailsのFor
 
 最初は[Lograge](https://github.com/roidrage/lograge)でも使えばいいかなと思っていたんだけれども、Rails 7への対応が明記されていないので、[Semantic Logger](https://logger.rocketjob.io/rails)を使ってみることにした。
 
+# Railsのバリデーション
+
+基本は[RailsガイドのActive Recordバリデーション](https://railsguides.jp/active_record_validations.html)を参照。
+
 # Prettierの導入
 
 ICS Mediaの以下の記事を参考にした。
