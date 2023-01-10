@@ -18,6 +18,12 @@ RailsのHTMLタグにおけるclassの指定方法については、[RailsのFor
 
 [Railsアプリケーションを設定する（Railsガイド）](https://railsguides.jp/configuring.html#config-action-view-field-error-proc)
 
+# スタイルの継承
+
+Sassの`@extend`を使用すると実装可能。
+
+[エクステンドでスタイルを継承する（まくまくSaasノート）](https://maku77.github.io/sass/extend.html)
+
 # LogのJSON化
 
 最初は[Lograge](https://github.com/roidrage/lograge)でも使えばいいかなと思っていたんだけれども、Rails 7への対応が明記されていないので、[Semantic Logger](https://logger.rocketjob.io/rails)を使ってみることにした。
