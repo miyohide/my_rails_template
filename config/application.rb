@@ -25,6 +25,6 @@ module RailsForAzureWebapps
     config.semantic_logger.add_appender(file_name: File.join("log", "#{Rails.env}.json"), formatter: :json)
 
     # 入力フォームのバリデーションエラーのときに挿入されるタグをカスタマイズする
-    config.action_view.field_error_proc = Proc.new { |html_tag, instance| %(<span class="my_field_with_errors">#{html_tag}</span>).html_safe }
+    config.action_view.field_error_proc = Proc.new { |html_tag, instance| content_tag :span, html_tag, class: "my_field_with_errors" }
   end
 end
