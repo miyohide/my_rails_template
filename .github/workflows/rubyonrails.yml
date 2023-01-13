@@ -1,5 +1,22 @@
 name: "Ruby on Rails CI"
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main
+
+# Allows you to run this workflow manually from the Actions tab
+workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
   test:
@@ -36,12 +53,19 @@ jobs:
       # Add or replace test runners here
       - name: Run tests
         run: bin/rails test
+      - name: Setup Pages
+        uses: actions/configure-pages@v2
       # Save Coverage
       - name: Save Coverage
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: coverage
           path: ./coverage/
+      - name: Upload docs
+        uses: actions/upload-pages-artifact@v1
+        with:
+          # Upload entire repository
+          path: 'docs'
+
 
   lint:
     runs-on: ubuntu-latest
@@ -59,3 +83,14 @@ jobs:
         run: bin/brakeman -q -w2
       - name: Lint Ruby files
         run: bin/rubocop --parallel --require rubocop-rails
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
