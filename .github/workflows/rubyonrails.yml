@@ -36,6 +36,12 @@ jobs:
       # Add or replace test runners here
       - name: Run tests
         run: bin/rake
+      # Save Coverage
+      - name: Save Coverage
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage
+          path: ./coverage/
 
   lint:
     runs-on: ubuntu-latest
