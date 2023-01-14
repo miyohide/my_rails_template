@@ -54,16 +54,14 @@ jobs:
         run: bin/rails test
       - name: Setup Pages
         uses: actions/configure-pages@v2
+      - name: move coverage to docs/coverage
+        run: mv coverage docs/coverage
       # Save Coverage
-      - name: Save Coverage
+      - name: Upload docs
         uses: actions/upload-pages-artifact@v1
         with:
-          path: 'coverage'
-      # - name: Upload docs
-      #   uses: actions/upload-pages-artifact@v1
-      #   with:
-      #     # Upload entire repository
-      #     path: 'docs'
+          # Upload entire repository
+          path: 'docs'
 
 
   lint:
