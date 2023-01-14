@@ -58,12 +58,12 @@ jobs:
       - name: Save Coverage
         uses: actions/upload-pages-artifact@v1
         with:
-          path: ./coverage/
-      - name: Upload docs
-        uses: actions/upload-pages-artifact@v1
-        with:
-          # Upload entire repository
-          path: 'docs'
+          path: 'coverage'
+      # - name: Upload docs
+      #   uses: actions/upload-pages-artifact@v1
+      #   with:
+      #     # Upload entire repository
+      #     path: 'docs'
 
 
   lint:
