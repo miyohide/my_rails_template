@@ -55,10 +55,14 @@ jobs:
       # Add or replace test runners here
       - name: Run tests
         run: bin/rails test
+      - name: Generate docs
+        run: bin/yard doc
       - name: Setup Pages
         uses: actions/configure-pages@v2
-      - name: move coverage to docs/coverage
-        run: mv coverage docs/coverage
+      - name: move generated files to docs/
+        run: |
+          mv coverage docs/coverage
+          mv doc docs/yard_docs
       # Save Coverage
       - name: Upload docs
         uses: actions/upload-pages-artifact@v1

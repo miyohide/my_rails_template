@@ -46,3 +46,7 @@ HELP.md
 
 # Coverage
 /coverage
+
+# yard files
+/.yardoc
+/doc
