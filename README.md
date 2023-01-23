@@ -2,9 +2,15 @@
 
 Railsを使ったテンプレートプロジェクトです
 
-# 起動の方法
+# 起動の方法（ローカル環境）
 
 `bin/dev`で起動する。
+
+# 起動の方法（Docker環境）
+
+1. `docker compose build`してコンテナイメージを作成する。
+2. `docker compose run web bundle install`を実行して、gemをインストールする
+3. `docker compose run web bin/rails db:migrate`を実行して、テーブルを作成する
 
 # Bootstrapの導入方法
 
