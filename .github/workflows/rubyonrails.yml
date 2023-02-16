@@ -43,6 +43,8 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: false
+      - name: install gems
+        run: bundle install
       # Setup nodejs
       - name: Setup nodejs
         run: yarn install --frozen-lockfile
