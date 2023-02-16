@@ -39,6 +39,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
       # Add or replace dependency steps here
+      # debug gemのインストールがうまくいかないため、手動でbundle installを実施
+      # see. Issue 130
       - name: Install Ruby
         uses: ruby/setup-ruby@v1
         with:
@@ -78,6 +80,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+      # debug gemのインストールがうまくいかないため、手動でbundle installを実施
+      # see. Issue 130
       - name: Install Ruby and gems
         uses: ruby/setup-ruby@v1
         with:
