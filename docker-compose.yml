@@ -1,11 +1,11 @@
-version: '3'
+version: '3.9'
 
 services:
   web:
     build:
      context: .
-     secrets:
-       - master_key
+    secrets:
+      - master_key
     image: my_rails_template:0.0.1
     stdin_open: true
     tty: true
