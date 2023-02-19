@@ -1,5 +1,5 @@
-FROM node:16.17.0 as node
-FROM ruby:3.1.3
+FROM node:18.14.1 as node
+FROM ruby:3.2.1
 
 ENV YARN_VERSION=1.22.19
 ENV RAILS_ENV=production
