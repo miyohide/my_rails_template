@@ -17,11 +17,12 @@ RUN ln -s /opt/yarn/bin/yarn /usr/local/bin/yarn \
 WORKDIR /app
 
 RUN apt-get update && apt-get install -y \
-      sqlite3
+      sqlite3 \
+      && rm -rf /var/lib/apt/lists/*
 
 COPY Gemfile /app/Gemfile
 COPY Gemfile.lock /app/Gemfile.lock
-RUN bundle install --jobs=4
+RUN bundle install --without test development --jobs=4
 
 COPY package.json /app/package.json
 COPY yarn.lock /app/yarn.lock
