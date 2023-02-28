@@ -8,9 +8,28 @@ Railsを使ったテンプレートプロジェクトです
 
 # 起動の方法（Docker環境）
 
-1. `docker compose build`してコンテナイメージを作成する。
-2. `docker compose run web bundle install`を実行して、gemをインストールする
-3. `docker compose run web bin/rails db:migrate`を実行して、テーブルを作成する
+以下のブログを参考に。
+
+https://sinsoku.hatenablog.com/entry/2021/03/24/100000
+
+初回の環境構築は、`docker-compose build`でDockerイメージを作成して`bin/setup`を実行する。
+
+```shell
+$ docker-compose build
+$ docker-compose run --rm web bin/setup
+```
+
+その後は、`docker-compose run --rm --service-ports web`でサーバを起動する。
+
+```shell
+$ docker-compose run --rm --service-ports web
+```
+
+作業中に`debug` gemのインストールが失敗することがあったので、以下のコマンドを実行して全てのvolumeを削除して、再度`bin/setup`を実行するとうまくいった。
+
+```shell
+$ docker-compose down --volumes
+```
 
 # Bootstrapの導入方法
 
