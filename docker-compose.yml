@@ -13,7 +13,7 @@ services:
     environment:
       BUNDLE_PATH: "/app/vendor/bundle"
       BINDING: "0.0.0.0"
-    command: ["bin/rails", "server"]
+    command: ["bin/dev"]
     expose: ["3000"]
     ports: ["3000:3000"]
     working_dir: /app
