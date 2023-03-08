@@ -68,6 +68,7 @@ group :development do
 
   # Generate doc
   gem 'yard'
+  gem 'foreman'
 end
 
 group :test do
