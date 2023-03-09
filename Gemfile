@@ -57,6 +57,8 @@ group :development, :test do
 end
 
 group :development do
+  # Manage Procfile-based applications [https://github.com/ddollar/foreman]
+  gem 'foreman'
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem 'web-console'
 
@@ -68,7 +70,6 @@ group :development do
 
   # Generate doc
   gem 'yard'
-  gem 'foreman'
 end
 
 group :test do
