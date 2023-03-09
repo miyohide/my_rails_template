@@ -31,6 +31,12 @@ $ docker-compose run --rm --service-ports web
 $ docker-compose down --volumes
 ```
 
+コンテナ内で作業するときは、以下のコマンドを実行する。
+
+```shell
+$ docker-compose run --rm web bash
+```
+
 # Bootstrapの導入方法
 
 Bootstrapの導入方法については、[Rails7時代のJS/CSSバンドルの新常識](https://hazm.jp/archives/147)を参考に、[cssbundling-rails](https://github.com/rails/cssbundling-rails)を使って導入した。
