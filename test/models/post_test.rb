@@ -6,6 +6,11 @@ class PostTest < ActiveSupport::TestCase
     assert !p.valid?
   end
 
+  test "titleの入力が空文字のとき、validationに失敗すること" do
+    p = Post.new(title: "", body: "this is body")
+    assert !p.valid?
+  end
+
   test "titleの入力が51文字入力されているとき、validationに失敗すること" do
     p = Post.new(title: "a" * 51, body: "body")
     assert !p.valid?
@@ -14,5 +19,15 @@ class PostTest < ActiveSupport::TestCase
   test "bodyの入力がないとき、validationに失敗すること" do
     p = Post.new(title: "this is title")
     assert !p.valid?
+  end
+
+  test "bodyの入力が空文字のとき、validationに失敗すること" do
+    p = Post.new(title: "this is title", body: "")
+    assert !p.valid?
+  end
+
+  test "titleの入力が50文字以下で、bodyの入力があるとき、Postが作成できること" do
+    p = Post.new(title: "a" * 50, body: "body")
+    assert p.save
   end
 end
