@@ -73,4 +73,19 @@ Rails.application.configure do
 
   # Raise error when a before_action's only/except options reference missing actions
   config.action_controller.raise_on_missing_callback_actions = true
+
+  # ログの設定（semantic logger for Rails）
+  config.rails_semantic_logger.format = :json
+  # デフォルトの名前付きタグ
+  config.log_tags = {
+    request_id: :request_id,
+    ip: :remote_ip,
+  }
+
+  # 標準出力時にはファイルに出さす、JSON形式で出力する
+  if ENV["RAILS_LOG_TO_STDOUT"].present?
+    $stdout.sync = true
+    config.rails_semantic_logger.add_file_appender = false
+    config.semantic_logger.add_appender(io: $stdout, formatter: :json)
+  end
 end
