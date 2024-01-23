@@ -241,6 +241,14 @@ GEM
       unicode-display_width (>= 2.4.0, < 3.0)
     rubocop-ast (1.30.0)
       parser (>= 3.2.1.0)
+    rubocop-performance (1.20.2)
+      rubocop (>= 1.48.1, < 2.0)
+      rubocop-ast (>= 1.30.0, < 2.0)
+    rubocop-rails (2.23.1)
+      activesupport (>= 4.2.0)
+      rack (>= 1.1)
+      rubocop (>= 1.33.0, < 2.0)
+      rubocop-ast (>= 1.30.0, < 2.0)
     ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
@@ -325,6 +333,9 @@ DEPENDENCIES
   puma (>= 5.0)
   rails (~> 7.1.2)
   rails_semantic_logger
+  rubocop
+  rubocop-performance
+  rubocop-rails
   selenium-webdriver
   solargraph
   sprockets-rails
