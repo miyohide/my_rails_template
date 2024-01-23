@@ -1,1 +1,33 @@
-inherit_from: .rubocop_todo.yml
+require: rubocop-rails
+
+AllCops:
+  # 除外するディレクトリを指定する
+  Exclude:
+    - "vendor/**/*"
+    - "db/**/*"
+    - "config/**/*"
+    - "bin/*"
+    - "node_modules/**/*"
+
+  # 新ルールを有効化
+  NewCops: enable
+
+# 1行あたりの文字数をチェックする
+Layout/LineLength:
+  Max: 130
+
+# 日本語でのコメントを許可
+Style/AsciiComments:
+  Enabled: false
+
+# 空メソッドの場合に1行のスタイルにしない
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+
+# frozen_string_literalのコメントがなくても許容
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# 文字列は二重引用符にする
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
