@@ -1,0 +1,8 @@
+ja:
+  posts:
+    create:
+      success: "Postの作成に成功しました"
+    update:
+      success: "Postの更新に成功しました"
+    destroy:
+      success: "Postの削除に成功しました"
