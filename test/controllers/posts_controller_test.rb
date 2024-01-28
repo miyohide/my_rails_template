@@ -5,17 +5,17 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     @post = posts(:normal_post)
   end
 
-  test "should get index" do
+  test "posts_urlページ（/posts）にGETでアクセスできること" do
     get posts_url
     assert_response :success
   end
 
-  test "should get new" do
+  test "new_post_urlページ（/posts/new）にGETでアクセスできること" do
     get new_post_url
     assert_response :success
   end
 
-  test "should create post" do
+  test "posts_urlページ（/posts）にPOSTでアクセスするとPostが作られ、作られたPostページにリダイレクトすること" do
     assert_difference("Post.count") do
       post posts_url, params: { post: { body: @post.body, title: @post.title } }
     end
@@ -23,22 +23,22 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to post_url(Post.last)
   end
 
-  test "should show post" do
+  test "post_url(@post)（/posts/:id）にGETでアクセスできること" do
     get post_url(@post)
     assert_response :success
   end
 
-  test "should get edit" do
+  test "edit_post_url(@post)（/posts/:id）ページにGETでアクセスできること" do
     get edit_post_url(@post)
     assert_response :success
   end
 
-  test "should update post" do
+  test "post_url(@post)（/posts/:id）にPATCHでアクセスすると、更新したPostページにリダイレクトすること" do
     patch post_url(@post), params: { post: { body: @post.body, title: @post.title } }
     assert_redirected_to post_url(@post)
   end
 
-  test "should destroy post" do
+  test "post_url(@post)（/posts/:id）にDELETEでアクセスすると、該当のPostが削除されPosts#indexページにリダイレクトすること" do
     assert_difference("Post.count", -1) do
       delete post_url(@post)
     end
