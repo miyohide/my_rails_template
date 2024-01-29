@@ -5,4 +5,9 @@ class WelcomeControllerTest < ActionDispatch::IntegrationTest
     get welcome_index_url
     assert_response :success
   end
+
+  test "root_url（/）ページにGETでアクセスできること" do
+    get root_url
+    assert_response :success
+  end
 end
