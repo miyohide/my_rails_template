@@ -18,6 +18,7 @@ services:
         fluentd-async-connect: "false"
         tag: "rails_dev"
 
+  # Apple Sillicon使用のmac用のimageを使ったseleniumを指定
   selenium:
     image: seleniarm/standalone-chromium
 
