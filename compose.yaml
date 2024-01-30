@@ -18,6 +18,9 @@ services:
         fluentd-async-connect: "false"
         tag: "rails_dev"
 
+  selenium:
+    image: seleniarm/standalone-chromium
+
   fluent:
     image: fluent/fluent-bit
     volumes:
