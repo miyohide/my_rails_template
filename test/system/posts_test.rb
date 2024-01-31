@@ -16,9 +16,9 @@ class PostsTest < ApplicationSystemTestCase
 
     fill_in "Body", with: @post.body
     fill_in "Title", with: @post.title
-    click_on "Create Post"
+    click_on "登録する"
 
-    assert_text "Post was successfully created"
+    assert_text "Postの作成に成功しました"
     click_on "Back"
   end
 
@@ -28,9 +28,9 @@ class PostsTest < ApplicationSystemTestCase
 
     fill_in "Body", with: @post.body
     fill_in "Title", with: @post.title
-    click_on "Update Post"
+    click_on "更新する"
 
-    assert_text "Post was successfully updated"
+    assert_text "Postの更新に成功しました"
     click_on "Back"
   end
 
@@ -38,6 +38,6 @@ class PostsTest < ApplicationSystemTestCase
     visit post_url(@post)
     click_on "Destroy this post", match: :first
 
-    assert_text "Post was successfully destroyed"
+    assert_text "Postの削除に成功しました"
   end
 end
