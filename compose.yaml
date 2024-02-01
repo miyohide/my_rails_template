@@ -9,24 +9,26 @@ services:
       - '3000:3000'
     tty: true
     stdin_open: true
+    environment:
+      - SELENIUM_REMOTE_URL=http://selenium:4444/wd/hub
     volumes:
       - .:/rails
-    logging:
-      driver: fluentd
-      options:
-        fluentd-address: "localhost:24224"
-        fluentd-async-connect: "false"
-        tag: "rails_dev"
+    # logging:
+    #   driver: fluentd
+    #   options:
+    #     fluentd-address: "localhost:24224"
+    #     fluentd-async-connect: "false"
+    #     tag: "rails_dev"
 
   # Apple Sillicon使用のmac用のimageを使ったseleniumを指定
   selenium:
     image: seleniarm/standalone-chromium
 
-  fluent:
-    image: fluent/fluent-bit
-    volumes:
-      - ./fluent-bit/fluent-bit.conf:/fluent-bit/etc/fluent-bit.conf
-      - ./fluent-bit/parsers.conf:/fluent-bit/etc/parsers.conf
-      - ./log:/log:rw
-    ports:
-      - "24224:24224"
+  # fluent:
+  #   image: fluent/fluent-bit
+  #   volumes:
+  #     - ./fluent-bit/fluent-bit.conf:/fluent-bit/etc/fluent-bit.conf
+  #     - ./fluent-bit/parsers.conf:/fluent-bit/etc/parsers.conf
+  #     - ./log:/log:rw
+  #   ports:
+  #     - "24224:24224"
