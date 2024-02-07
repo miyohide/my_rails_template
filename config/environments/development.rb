@@ -88,4 +88,8 @@ Rails.application.configure do
     config.rails_semantic_logger.add_file_appender = false
     config.semantic_logger.add_appender(io: $stdout, formatter: :json)
   end
+
+  # tailwind cssがうまく動かない時のおまじない
+  # see. https://github.com/rails/tailwindcss-rails/issues/160
+  config.assets.debug = true
 end
