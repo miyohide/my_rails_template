@@ -21,8 +21,16 @@ services:
     #     tag: "rails_dev"
 
   # Apple Sillicon使用のmac用のimageを使ったseleniumを指定
-  selenium:
-    image: seleniarm/standalone-chromium
+  # selenium:
+  #   image: seleniarm/standalone-chromium
+
+  db:
+    image: postgres:15.6-alpine
+    environment:
+      - POSTGRES_USER=mypguser
+      - POSTGRES_PASSWORD=mypgpassword
+    # volumes:
+    #   - postgres_volume:/var/lib/postgresql/data
 
   # fluent:
   #   image: fluent/fluent-bit
@@ -32,3 +40,6 @@ services:
   #     - ./log:/log:rw
   #   ports:
   #     - "24224:24224"
+
+# volulmes:
+#   postgres_volume:
