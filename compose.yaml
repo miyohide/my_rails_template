@@ -11,6 +11,8 @@ services:
     stdin_open: true
     environment:
       - SELENIUM_REMOTE_URL=http://selenium:4444/wd/hub
+      - POSTGRES_USER=mypguser
+      - POSTGRES_PASSWORD=mypgpassword
     volumes:
       - .:/rails
     # logging:
