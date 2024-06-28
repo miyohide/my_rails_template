@@ -38,5 +38,5 @@ services:
   #   ports:
   #     - "24224:24224"
 
-volulmes:
+volumes:
   postgres_volume:
