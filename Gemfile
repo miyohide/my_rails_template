@@ -48,8 +48,8 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 
 # logをJSON化する
-gem "amazing_print"
-gem "rails_semantic_logger"
+# gem "amazing_print"
+# gem "rails_semantic_logger"
 
 gem "rails-i18n"
 
