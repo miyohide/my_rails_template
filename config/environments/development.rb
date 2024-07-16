@@ -1,5 +1,5 @@
 require "active_support/core_ext/integer/time"
-
+require "json_log_formatter"
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -77,4 +77,9 @@ Rails.application.configure do
   # tailwind cssがうまく動かない時のおまじない
   # see. https://github.com/rails/tailwindcss-rails/issues/160
   config.assets.debug = true
+
+  # ログをJSONで出力する（lib/json_log_formatter.rbで実装しているオリジナルのもの）
+  config.log_formatter = JsonLogFormatter.new
+  config.logger = ActiveSupport::Logger.new("log/#{Rails.env}.json")
+  config.logger.formatter = config.log_formatter
 end
