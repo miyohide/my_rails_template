@@ -4,7 +4,7 @@ class JsonLogFormatter < ::Logger::Formatter
       severity: severity,
       time: time.utc.iso8601,
       progname: progname,
-      message: msg
+      message: msg.strip
     }.to_json + "\n"
   end
 end
